@@ -1,0 +1,1087 @@
+ 
+2025-01-16 20:40:00
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_10_gamma_0.97', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_10_gamma_0.97', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-16 20:48:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-16 20:56:21
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_50_gamma_0.97', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_50_gamma_0.97', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-16 21:04:29
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_70_gamma_0.97', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_70_gamma_0.97', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-16 21:12:48
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_90_gamma_0.97', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_90_gamma_0.97', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-16 21:33:01
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-16 21:35:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-16 21:47:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-16 21:58:12
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_50_gamma_0.97', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_50_gamma_0.97', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-16 22:09:07
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_70_gamma_0.97', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_70_gamma_0.97', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-16 22:20:43
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-16 22:50:42
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'non-sparse 30 requests', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-17 11:10:48
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'amrtest', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying with diff rewarding', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-17 11:11:31
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'amrtest', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying with diff rewarding', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-17 16:21:00
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_newrunner', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-17 16:31:47
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_newrunner', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-17 16:41:45
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_50_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_50_gamma_0.97_newrunner', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-17 16:51:37
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_70_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_70_gamma_0.97_newrunner', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-17 17:01:34
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunner', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-17 18:00:31
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_10_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_10_gamma_0.97_newrunner', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-17 18:12:36
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_30_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_30_gamma_0.97_newrunner', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-17 18:23:48
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_50_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_50_gamma_0.97_newrunner', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-17 18:35:05
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_70_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_70_gamma_0.97_newrunner', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-17 18:46:57
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_90_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_90_gamma_0.97_newrunner', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-17 20:32:37
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_10_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_10_gamma_0.97_newrunner', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-17 20:46:18
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_30_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_30_gamma_0.97_newrunner', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-17 20:58:49
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_50_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_50_gamma_0.97_newrunner', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-17 21:11:23
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_70_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_70_gamma_0.97_newrunner', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-17 21:23:56
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_90_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_90_gamma_0.97_newrunner', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-18 17:15:46
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_54_requests_10_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_54_requests_10_gamma_0.97_newrunner', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-18 17:27:00
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_54_requests_30_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_54_requests_30_gamma_0.97_newrunner', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-18 17:38:03
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_54_requests_50_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_54_requests_50_gamma_0.97_newrunner', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-18 17:49:04
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_54_requests_70_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_54_requests_70_gamma_0.97_newrunner', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-18 18:00:05
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_54_requests_90_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_54_requests_90_gamma_0.97_newrunner', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-18 21:07:40
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_10_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_10_gamma_0.97_newrunner', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-18 21:17:29
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_newrunner', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-18 21:28:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_50_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_50_gamma_0.97_newrunner', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-18 21:38:13
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_70_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_70_gamma_0.97_newrunner', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-18 21:46:57
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_10_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_10_gamma_0.97_newrunner', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-18 21:55:45
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_newrunner', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-18 22:03:56
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_50_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_50_gamma_0.97_newrunner', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-18 22:12:01
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_70_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_70_gamma_0.97_newrunner', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-18 22:20:08
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_90_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_90_gamma_0.97_newrunner', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-18 22:36:04
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_90_gamma_0.97_newrunner', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_90_gamma_0.97_newrunner', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-18 22:55:50
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-18 22:59:20
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-18 23:33:34
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_10_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_10_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-18 23:42:11
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-18 23:50:48
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_50_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_50_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-19 00:00:03
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_70_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_70_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-19 00:08:53
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 09:54:04
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-19 10:01:46
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-19 10:03:27
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-19 10:13:58
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-19 10:24:31
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_50_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_50_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-19 10:34:54
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_70_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_70_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-19 10:45:00
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 13:44:26
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 13:50:50
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 13:55:57
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 14:03:45
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 14:05:01
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 14:05:23
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 14:10:27
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 14:22:17
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 14:23:03
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 14:32:49
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 14:35:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 16:08:23
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 16:34:03
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-19 16:35:29
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-19 16:51:48
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-19 17:09:36
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-19 17:28:53
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-19 17:47:43
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_newrunnerk', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_newrunnerk', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-20 13:03:07
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-20 13:19:56
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-20 13:35:34
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-20 13:51:22
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-20 14:07:35
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-20 20:09:40
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-20 20:20:25
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-20 20:25:02
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-20 21:17:46
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-20 21:18:29
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-20 21:31:20
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-20 21:44:09
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-20 21:56:41
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-20 22:10:00
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-20 22:23:25
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_newrunnerk2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_newrunnerk2', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-20 22:27:21
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_newrunnerk_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_newrunnerk_reward2', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-20 22:41:12
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_newrunnerk_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_newrunnerk_reward2', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-20 22:54:23
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_newrunnerk_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_newrunnerk_reward2', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-20 23:06:58
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_newrunnerk_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_newrunnerk_reward2', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-20 23:19:58
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_newrunnerk_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_newrunnerk_reward2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-21 11:09:57
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_10_gamma_0.97_optimal_rew_check_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_10_gamma_0.97_optimal_rew_check_msps_1', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-21 11:18:09
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_30_gamma_0.97_optimal_rew_check_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_30_gamma_0.97_optimal_rew_check_msps_1', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-21 11:25:54
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_50_gamma_0.97_optimal_rew_check_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_50_gamma_0.97_optimal_rew_check_msps_1', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-21 11:33:15
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_70_gamma_0.97_optimal_rew_check_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_70_gamma_0.97_optimal_rew_check_msps_1', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-21 11:40:35
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_optimal_rew_check_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_optimal_rew_check_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-21 12:10:05
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_10_gamma_0.97_optimal_rew_checkr3_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_10_gamma_0.97_optimal_rew_checkr3_msps_1', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-21 12:10:55
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_10_gamma_0.97_optimal_rew_checkr3_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_10_gamma_0.97_optimal_rew_checkr3_msps_1', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-21 12:18:00
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_30_gamma_0.97_optimal_rew_checkr3_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_30_gamma_0.97_optimal_rew_checkr3_msps_1', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-21 12:25:23
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_50_gamma_0.97_optimal_rew_checkr3_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_50_gamma_0.97_optimal_rew_checkr3_msps_1', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-21 12:32:46
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_70_gamma_0.97_optimal_rew_checkr3_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_70_gamma_0.97_optimal_rew_checkr3_msps_1', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-21 12:41:00
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_optimal_rew_checkr3_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_optimal_rew_checkr3_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-21 15:15:51
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_10_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_10_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-21 15:22:44
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_30_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_30_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-21 15:29:27
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_50_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_50_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-21 15:36:05
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_70_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_70_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-21 15:42:20
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-21 22:20:13
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_check_rew4_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_check_rew4_msps_5', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-22 11:25:13
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-22 11:31:06
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-22 11:32:12
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-22 11:45:09
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-22 11:46:36
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-22 12:10:56
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_10_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_10_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-22 12:18:40
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_30_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_30_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-22 12:25:55
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_50_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_50_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-22 12:32:44
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_70_gamma_0.97_check_rew4_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_70_gamma_0.97_check_rew4_msps_1', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-22 12:44:07
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_10_gamma_0.97_check_rew4_sparse_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_10_gamma_0.97_check_rew4_sparse_msps_1', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-22 12:51:14
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_30_gamma_0.97_check_rew4_sparse_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_30_gamma_0.97_check_rew4_sparse_msps_1', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-22 12:58:13
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_50_gamma_0.97_check_rew4_sparse_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_50_gamma_0.97_check_rew4_sparse_msps_1', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-22 13:04:54
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_70_gamma_0.97_check_rew4_sparse_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_70_gamma_0.97_check_rew4_sparse_msps_1', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-22 13:11:26
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_check_rew4_sparse_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_check_rew4_sparse_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-22 14:10:56
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_10_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_10_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-22 14:18:09
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_30_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_30_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-22 14:25:01
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_50_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_50_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-22 14:31:44
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_70_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_70_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-22 14:38:50
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-22 15:49:08
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_10_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_10_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-22 15:56:26
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_30_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_30_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-22 16:03:32
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_50_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_50_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-22 16:10:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_70_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_70_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-22 16:17:07
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-22 16:30:48
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_10_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_10_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-22 16:37:00
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_30_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_30_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-22 16:42:30
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_50_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_50_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-22 16:47:59
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_70_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_70_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-22 16:53:28
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_check_rew4_newintermediate_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_check_rew4_newintermediate_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-22 17:08:38
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_check_rew4_newintermediate_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_check_rew4_newintermediate_msps_5', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-22 17:19:58
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_check_rew4_newintermediate_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_check_rew4_newintermediate_msps_5', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-22 17:29:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_check_rew4_newintermediate_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_check_rew4_newintermediate_msps_5', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-22 17:38:38
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_check_rew4_newintermediate_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_check_rew4_newintermediate_msps_5', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-22 17:48:01
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_check_rew4_newintermediate_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_check_rew4_newintermediate_msps_5', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-23 10:20:11
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_check_rew4_oldintermediate_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_check_rew4_oldintermediate_msps_5', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-23 10:32:10
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_check_rew4_oldintermediate_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_check_rew4_oldintermediate_msps_5', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-23 10:42:51
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_check_rew4_oldintermediate_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_check_rew4_oldintermediate_msps_5', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-23 10:53:36
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_check_rew4_oldintermediate_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_check_rew4_oldintermediate_msps_5', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-23 11:04:20
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_check_rew4_oldintermediate_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_check_rew4_oldintermediate_msps_5', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-27 11:06:06
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_check_rew4_oldintermediate_msps_5_changedroomcost', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_check_rew4_oldintermediate_msps_5_changedroomcost', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-27 11:17:09
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_check_rew4_oldintermediate_msps_5_changedroomcost', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_check_rew4_oldintermediate_msps_5_changedroomcost', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-27 11:27:18
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_check_rew4_oldintermediate_msps_5_changedroomcost', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_check_rew4_oldintermediate_msps_5_changedroomcost', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-27 11:36:45
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_check_rew4_oldintermediate_msps_5_changedroomcost', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_check_rew4_oldintermediate_msps_5_changedroomcost', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-27 11:45:45
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_check_rew4_oldintermediate_msps_5_changedroomcost', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_check_rew4_oldintermediate_msps_5_changedroomcost', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-27 11:57:45
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_check_rew4_newintermediate_msps_5_changedroomcost', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_check_rew4_newintermediate_msps_5_changedroomcost', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-27 12:07:32
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_check_rew4_newintermediate_msps_5_changedroomcost', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_check_rew4_newintermediate_msps_5_changedroomcost', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-27 12:16:32
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_check_rew4_newintermediate_msps_5_changedroomcost', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_check_rew4_newintermediate_msps_5_changedroomcost', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-27 12:26:07
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_check_rew4_newintermediate_msps_5_changedroomcost', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_check_rew4_newintermediate_msps_5_changedroomcost', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-27 12:34:41
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_check_rew4_newintermediate_msps_5_changedroomcost', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_check_rew4_newintermediate_msps_5_changedroomcost', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-27 13:46:17
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_check_rew4_newintermediate_msps_5_not_penalizing_overacheiving', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_check_rew4_newintermediate_msps_5_not_penalizing_overacheiving', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-27 13:55:32
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_check_rew4_newintermediate_msps_5_not_penalizing_overacheiving', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_check_rew4_newintermediate_msps_5_not_penalizing_overacheiving', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-27 14:04:47
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_check_rew4_newintermediate_msps_5_not_penalizing_overacheiving', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_check_rew4_newintermediate_msps_5_not_penalizing_overacheiving', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-27 14:13:54
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_check_rew4_newintermediate_msps_5_not_penalizing_overacheiving', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_check_rew4_newintermediate_msps_5_not_penalizing_overacheiving', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-27 14:22:17
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_non_cooper_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_non_cooper_msps_1', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-27 14:27:00
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_non_cooper_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_non_cooper_msps_1', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-27 14:31:32
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_non_cooper_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_non_cooper_msps_1', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-27 14:36:05
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_non_cooper_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_non_cooper_msps_1', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-27 14:41:08
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_non_cooper_msps_1', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_non_cooper_msps_1', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-27 21:47:37
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_non_cooper_msps_2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_non_cooper_msps_2', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-27 21:54:22
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_non_cooper_msps_2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_non_cooper_msps_2', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-27 22:00:25
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_non_cooper_msps_2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_non_cooper_msps_2', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-27 22:06:24
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_non_cooper_msps_2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_non_cooper_msps_2', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-27 22:12:30
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_non_cooper_msps_2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_non_cooper_msps_2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-27 22:51:53
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_non_cooper_msps_3', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_non_cooper_msps_3', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-27 22:59:17
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_non_cooper_msps_3', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_non_cooper_msps_3', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-27 23:06:20
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_non_cooper_msps_3', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_non_cooper_msps_3', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-27 23:13:45
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_non_cooper_msps_3', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_non_cooper_msps_3', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-27 23:20:50
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_non_cooper_msps_3', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_non_cooper_msps_3', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-27 23:53:23
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_non_cooper_msps_4', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_non_cooper_msps_4', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-28 00:02:22
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_non_cooper_msps_4', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_non_cooper_msps_4', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-28 00:10:51
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_non_cooper_msps_4', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_non_cooper_msps_4', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-28 00:19:09
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_non_cooper_msps_4', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_non_cooper_msps_4', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-28 00:27:22
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_non_cooper_msps_4', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_non_cooper_msps_4', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-28 00:42:25
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_non_cooper_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_non_cooper_msps_5', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-28 00:51:48
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_non_cooper_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_non_cooper_msps_5', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-28 01:01:09
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_non_cooper_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_non_cooper_msps_5', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-28 01:10:23
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_non_cooper_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_non_cooper_msps_5', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-28 01:19:30
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_non_cooper_msps_5', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_non_cooper_msps_5', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-28 11:51:35
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'dumb', 'GAMMA': 0.97, 'MAX_STEPS': 1000, 'Alg': 'ppo', 'load': False, 'msg': 'checking', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-28 11:52:34
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'dumb', 'GAMMA': 0.97, 'MAX_STEPS': 10000, 'Alg': 'ppo', 'load': False, 'msg': 'checking', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-28 11:53:51
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'dumb', 'GAMMA': 0.97, 'MAX_STEPS': 10000, 'Alg': 'ppo', 'load': False, 'msg': 'checking', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-28 11:54:53
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'dumb', 'GAMMA': 0.97, 'MAX_STEPS': 10000, 'Alg': 'ppo', 'load': False, 'msg': 'checking', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-28 12:06:45
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_checker', 'GAMMA': 0.97, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_checker', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-28 12:08:46
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_checker', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_checker', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-28 12:14:14
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_checker', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_checker', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-28 12:23:10
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_checker', 'GAMMA': 0.97, 'MAX_STEPS': 3500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_checker', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-28 12:36:30
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_checker', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_checker', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-28 13:31:25
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_checker2', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_checker2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-28 13:39:03
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_checker2', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_checker2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-28 13:50:26
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_checker2', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_checker2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-28 22:32:57
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_reward', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_reward', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-28 22:48:01
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_after_changing_reward', 'GAMMA': 0.97, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_after_changing_reward', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-28 22:50:04
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_after_changing_reward', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_after_changing_reward', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-28 22:55:55
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_after_changing_reward', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_after_changing_reward', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-28 23:05:46
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_after_changing_reward', 'GAMMA': 0.97, 'MAX_STEPS': 3500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_after_changing_reward', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-28 23:18:36
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_reward', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_reward', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-29 14:03:39
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-29 14:05:52
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-29 14:12:09
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-29 14:28:43
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 3500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-29 14:42:16
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-29 16:59:40
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_after_changing_reward2-099', 'GAMMA': 0.99, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_after_changing_reward2-099', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-29 17:01:56
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_after_changing_reward2-099', 'GAMMA': 0.99, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_after_changing_reward2-099', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-29 17:08:07
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_after_changing_reward2-099', 'GAMMA': 0.99, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_after_changing_reward2-099', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-29 17:17:07
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_after_changing_reward2-099', 'GAMMA': 0.99, 'MAX_STEPS': 3500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_after_changing_reward2-099', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-29 17:30:24
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_reward2-099', 'GAMMA': 0.99, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_reward2-099', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-29 18:45:07
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_10_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_10_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-29 18:46:50
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_30_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_30_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-29 18:52:21
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_50_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_50_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-29 19:01:58
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_70_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 3500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_70_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-29 19:13:33
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_90_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_90_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-29 19:32:29
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-29 19:34:07
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-29 19:38:40
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_50_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_50_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-29 19:47:30
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_70_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 3500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_70_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-29 19:58:14
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_after_changing_reward2', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_after_changing_reward2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-29 20:14:50
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_reward6', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_reward6', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-29 20:18:36
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_reward6', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_reward6', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-29 20:24:30
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_reward6', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_reward6', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-29 21:09:32
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_reward6', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_reward6', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-29 21:19:12
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_reward6', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_reward6', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 10:43:57
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_rewardPPO', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_rewardPPO', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 10:57:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_rewardPPO', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_rewardPPO', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 10:59:01
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_rewardPPO', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_rewardPPO', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 13:16:28
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_sigmoid_steepness', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_sigmoid_steepness', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 13:55:51
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_sigmoid_steepness', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_sigmoid_steepness', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 14:48:27
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_and_immediate', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_and_immediate', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 15:33:47
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 16:50:47
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 16:51:42
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_10_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_10_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-30 16:52:42
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_30_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_30_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-30 16:55:26
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_50_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_50_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-30 17:00:16
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_70_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 3500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_70_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-30 17:06:43
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_1_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_1_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 17:15:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_10_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_10_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-30 17:16:35
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-30 17:19:58
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_50_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_50_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-30 17:25:41
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_70_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 3500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_70_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-30 17:33:31
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 17:46:22
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-30 17:47:53
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-30 17:52:00
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_50_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_50_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-30 17:58:48
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_70_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 3500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_70_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-30 18:08:44
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 18:22:28
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_10_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_10_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-30 18:24:18
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_30_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_30_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-30 18:29:50
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_50_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_50_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-30 18:39:40
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_70_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 3500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_70_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-30 18:52:57
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_4_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_4_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-01-30 19:14:33
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_10_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_10_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-01-30 19:16:26
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_30_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_30_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-01-30 19:21:58
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-01-30 19:31:07
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 3500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-01-30 19:43:55
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_90_gamma_0.97_after_changing_and_immediate_avg', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-02 15:52:32
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_limiting_by_0', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_limiting_by_0', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-02-02 16:19:15
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_limiting_by_0', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_limiting_by_0', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-02-02 16:34:05
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_limiting_by_0', 'GAMMA': 0.97, 'MAX_STEPS': 5000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_limiting_by_0', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-02-02 16:52:07
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_50_gamma_0.97_limiting_by_0', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_50_gamma_0.97_limiting_by_0', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-02-02 16:54:27
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_50_gamma_0.97_limiting_by_0', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_50_gamma_0.97_limiting_by_0', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-02-02 17:05:31
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_50_gamma_0.97_limiting_by_0', 'GAMMA': 0.97, 'MAX_STEPS': 2500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_50_gamma_0.97_limiting_by_0', 'MSPS_REQUESTS': 50}
+**************************************************
+2025-02-02 17:23:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_5_requests_70_gamma_0.97_limiting_by_0', 'GAMMA': 0.97, 'MAX_STEPS': 7000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_5_requests_70_gamma_0.97_limiting_by_0', 'MSPS_REQUESTS': 70}
+**************************************************
+2025-02-02 17:41:55
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_limiting_by_0', 'GAMMA': 0.97, 'MAX_STEPS': 3000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_limiting_by_0', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-02 17:57:51
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_limiting_by_00', 'GAMMA': 0.97, 'MAX_STEPS': 3000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_limiting_by_00', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-02 18:31:38
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_limiting_by_00', 'GAMMA': 0.97, 'MAX_STEPS': 3000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_limiting_by_00', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-02 18:50:04
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_limiting_by_00', 'GAMMA': 0.97, 'MAX_STEPS': 3000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_limiting_by_00', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-03 10:37:23
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_limiting_by_009', 'GAMMA': 0.97, 'MAX_STEPS': 3000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_limiting_by_009', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-03 10:47:37
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_limiting_by_009', 'GAMMA': 0.97, 'MAX_STEPS': 3000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_limiting_by_009', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-03 11:04:44
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 3000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-03 11:33:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 3000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-03 11:34:13
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 3000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-03 11:43:26
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 3000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-03 11:50:04
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-03 11:57:59
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 9000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-03 12:25:04
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0090', 'GAMMA': 0.97, 'MAX_STEPS': 9000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0090', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-03 12:55:48
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0080', 'GAMMA': 0.97, 'MAX_STEPS': 9000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0080', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-03 13:32:41
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0080m', 'GAMMA': 0.97, 'MAX_STEPS': 9000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0080m', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-03 13:53:10
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0080m2', 'GAMMA': 0.97, 'MAX_STEPS': 9000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0080m2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-03 14:02:40
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0080m2', 'GAMMA': 0.97, 'MAX_STEPS': 9000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0080m2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-03 14:12:39
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0080m2', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0080m2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-03 14:23:48
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0080m2', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0080m2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-03 14:26:10
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0080m2', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0080m2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-03 14:34:16
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0080m2', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0080m2', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-04 10:24:52
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-04 10:27:23
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-04 10:30:59
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-04 10:31:45
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-04 10:33:52
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-04 10:35:43
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-04 10:42:18
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-04 10:55:35
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-04 11:01:17
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-04 11:05:34
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-04 11:16:47
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_90_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 4500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_90_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 90}
+**************************************************
+2025-02-04 11:34:27
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 11:37:20
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 11:44:47
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 11:45:54
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 12:04:13
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 12:08:26
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 12:14:47
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_1000_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 100000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_1000_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 1000}
+**************************************************
+2025-02-04 12:19:58
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 12:53:32
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 12:56:33
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 13:02:00
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 13:02:21
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 13:09:03
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 13:21:12
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 13:27:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 13:29:01
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 13:59:50
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 14:04:49
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 14:05:35
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0100', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0100', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 14:18:08
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0195', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0195', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 15:34:13
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0190', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0190', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 15:53:31
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0185', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0185', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 17:34:45
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0180', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0180', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 17:47:16
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0175', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0175', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 17:58:42
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0170', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0170', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 18:08:48
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0165', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0165', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 18:25:40
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0160', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0160', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 19:00:51
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0155', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0155', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 19:11:28
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0155', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0155', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 19:13:26
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0155', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0155', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 19:24:45
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0160', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0160', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 19:36:23
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0165', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0165', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 19:57:13
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0170', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0170', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 20:22:56
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0175', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0175', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 20:41:38
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0180', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0180', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 21:01:25
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0185', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0185', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 21:18:36
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0150', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0150', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-04 21:32:10
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_limiting_by_0145', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_limiting_by_0145', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-05 18:25:26
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_100_per_clients', 'GAMMA': 0.97, 'MAX_STEPS': 2000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_100_per_clients', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-05 18:27:44
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_100_per_clients', 'GAMMA': 0.97, 'MAX_STEPS': 2000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_100_per_clients', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-06 09:16:11
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_100_per_clients', 'GAMMA': 0.97, 'MAX_STEPS': 500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_100_per_clients', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-06 09:22:27
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_100_per_clients', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_100_per_clients', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-06 09:37:30
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_10_gamma_0.97_100_per_clients', 'GAMMA': 0.97, 'MAX_STEPS': 1000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_10_gamma_0.97_100_per_clients', 'MSPS_REQUESTS': 10}
+**************************************************
+2025-02-06 09:48:27
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_11_gamma_0.97_100_per_clients', 'GAMMA': 0.97, 'MAX_STEPS': 1100000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_11_gamma_0.97_100_per_clients', 'MSPS_REQUESTS': 11}
+**************************************************
+2025-02-06 10:02:17
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_12_gamma_0.97_100_per_clients', 'GAMMA': 0.97, 'MAX_STEPS': 1200000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_12_gamma_0.97_100_per_clients', 'MSPS_REQUESTS': 12}
+**************************************************
+2025-02-06 10:15:57
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_13_gamma_0.97_100_per_clients', 'GAMMA': 0.97, 'MAX_STEPS': 1300000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_13_gamma_0.97_100_per_clients', 'MSPS_REQUESTS': 13}
+**************************************************
+2025-02-06 10:28:54
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_14_gamma_0.97_100_per_clients', 'GAMMA': 0.97, 'MAX_STEPS': 1400000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_14_gamma_0.97_100_per_clients', 'MSPS_REQUESTS': 14}
+**************************************************
+2025-02-06 10:45:45
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_15_gamma_0.97_100_per_clients', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_15_gamma_0.97_100_per_clients', 'MSPS_REQUESTS': 15}
+**************************************************
+2025-02-18 13:09:34
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_15_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 750000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_15_gamma_0.97_testing', 'MSPS_REQUESTS': 15}
+**************************************************
+2025-02-18 13:11:46
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_15_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 750000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_15_gamma_0.97_testing', 'MSPS_REQUESTS': 15}
+**************************************************
+2025-02-18 13:12:36
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_15_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 750000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_15_gamma_0.97_testing', 'MSPS_REQUESTS': 15}
+**************************************************
+2025-02-18 13:20:16
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_15_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 750000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_15_gamma_0.97_testing', 'MSPS_REQUESTS': 15}
+**************************************************
+2025-02-18 13:31:03
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_15_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 750000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_15_gamma_0.97_testing', 'MSPS_REQUESTS': 15}
+**************************************************
+2025-02-18 13:50:31
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_15_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 750000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_15_gamma_0.97_testing', 'MSPS_REQUESTS': 15}
+**************************************************
+2025-02-18 13:56:03
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_15_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 750000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_15_gamma_0.97_testing', 'MSPS_REQUESTS': 15}
+**************************************************
+2025-02-18 14:05:18
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_15_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 750000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_15_gamma_0.97_testing', 'MSPS_REQUESTS': 15}
+**************************************************

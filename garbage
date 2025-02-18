@@ -1,0 +1,318 @@
+    
+def calculate_reward_claude(self, total_immersiveness, total_cost, num_msps_applied):
+        # Base components
+        total_alive_heads = sum(len(msp.heads) for msp in self.msp_list if not msp.is_msp_finished_budget()[0])
+        if total_alive_heads == 0:
+            return -100, 0  # Large penalty for all MSPs dying
+
+        # Immersiveness component
+        avg_immersiveness = total_immersiveness / total_alive_heads
+
+        # Cost efficiency component
+        cost_per_immersiveness = total_cost / (total_immersiveness + 1e-6)
+        cost_efficiency = -np.tanh(cost_per_immersiveness / 100)  # Normalize and make negative for high costs
+
+        # Budget sustainability
+        remaining_budgets = [msp.get_budget() / msp.initial_budget for msp in self.msp_list]
+        budget_sustainability = np.mean(remaining_budgets)
+
+        # Action success component
+        action_success = num_msps_applied / len(self.msp_list)
+
+        # Combine with weights
+        reward = (
+                0.4 * avg_immersiveness +
+                0.3 * cost_efficiency +
+                0.2 * budget_sustainability +
+                0.1 * action_success
+        )
+        # to be complted tomorrow inshallah.
+        self.total_timestep_reward.append(reward)
+        return reward, self.calculate_moving_average(reward)
+
+
+def calculate_reward(self, satisfiaction_penalities_dict):
+        """
+      The second attempt for calculating the reward.
+      Here I will use the delta of immerisvness as an immediate reward 
+      @param satisfiaction_penalities_dict: the dictionary of the penalities for each MSP. 
+       """
+        # first penalize on the deviation of immerisvness from the target.
+        reward = 0
+        sum_of_penalities = 0
+        INACTIVE_PENALTY = 0.6
+        SUCCESS_REWARD = 1.0
+        num_requests_satisifed = 0
+        positive_reward = 0
+
+        for key, vals in satisfiaction_penalities_dict.items():  # for every msp essentially
+            # print(f"@{self.__class__.__name__}, Info: Key: {key}, Val: {vals}")
+            if vals["applied"]:  # if msp applied its action ( had budget enought for it)
+                sum_of_penalities += vals["penalities"]
+
+                if vals["num_satisfied_requests"] == vals["number_of_heads"]:
+                    positive_reward += SUCCESS_REWARD / len(self.msp_list)  # this msp has satisfied all its heads.
+                num_requests_satisifed += vals["num_satisfied_requests"]
+            else:
+                sum_of_penalities += INACTIVE_PENALTY  # adding the maximum penality for the msp no budget.
+        # then reward on the immerisvness.
+        # print(f"@{self.__class__.__name__}, Info: Sum of penalities: {sum_of_penalities}, Positive reward: {positive_reward}")
+        reward = -1 * abs(sum_of_penalities)  # + positive_reward
+        reward = np.clip(reward, -1 * self.num_msps, 1 * self.num_msps)
+        if abs(sum_of_penalities) == 0:
+            reward = positive_reward
+
+        if hasattr(self, 'last_reward'):
+            reward = 0.7 * reward + 0.3 * self.last_reward
+
+        self.last_reward = reward
+        # print(f"@{self.__class__.__name__}, Info: Reward after clipping: {reward}")
+        return reward, self.calculate_moving_average(reward)
+
+
+
+
+    def calculate_terminal_reward_claude(self):
+        # Budget efficiency
+        final_budget_ratio = sum(msp.get_budget() for msp in self.msp_list) / sum(
+            msp.initial_budget for msp in self.msp_list)
+        budget_efficiency = -abs(
+            final_budget_ratio - 0.1) * 10  # Penalize for having too much or too little budget left
+
+        # Average performance
+        avg_immersiveness = np.mean(self.episode_overall_avg_imrvnss_lst)
+        performance_reward = avg_immersiveness * 10
+
+        # Survival reward (scaled down)
+        survival_ratio = GlobalState.get_clock() / self.max_clock
+        survival_reward = survival_ratio * 5
+
+        # Stability reward (penalize high variance)
+        immersiveness_variance = np.var(self.episode_overall_avg_imrvnss_lst)
+        stability_reward = -immersiveness_variance * 5
+
+        return budget_efficiency + performance_reward + survival_reward + stability_reward
+
+def calculate_terminal_reward(self, termination_reason: str):
+        # The terminal rewards is calculated as follows:
+        request_fullfillment_reward = 0
+        # 1. Number of requests fullileed / total number of requests.
+        total_msps_requests = sum(msp.num_requests for msp in self.msp_list)
+        total_fulfilled_requests = sum(msp.num_requests_fullfilled for msp in self.msp_list)
+        fulfillment_ratio = total_fulfilled_requests / total_msps_requests
+        # request_fullfillment_reward = fulfillment_ratio * 100  # Scale to reasonable range
+
+        if termination_reason != "GOAL_REACHED":
+            request_fullfillment_reward = -100  # * (total_msps_requests - total_fulfilled_requests)
+        else:
+            request_fullfillment_reward = 100  # * total_fulfilled_requests
+
+        # 2. Resource Efficiency
+        initial_budgets = sum(msp.initial_budget for msp in self.msp_list)
+        remaining_budgets = sum(msp.get_budget() for msp in self.msp_list)
+        budget_ratio = remaining_budgets / initial_budgets
+        # Penalize for having too much (inefficient) or too little (risky) budget left
+        #  budget_efficiency_reward = -abs(budget_ratio - 0.2) * 20  
+        budget_efficiency_reward = budget_ratio * 40
+
+        # 3. Immersiveness stability 
+        immersiveness_variance = np.var(self.episode_overall_avg_imrvnss_lst)
+        # stability_reward = 0 #-immersiveness_variance * 1000
+        stability_reward = -immersiveness_variance * 1000
+
+        # print(f"@{self.__class__.__name__}, Info: Request fullfillment reward: {request_fullfillment_reward}, Budget efficiency reward: {budget_efficiency_reward}, Stability reward: {stability_reward}\n")
+
+        current_total_reward = request_fullfillment_reward + budget_efficiency_reward + stability_reward
+        # if current_total_reward > self.total_episodical_maximum_so_far:
+        #     self.total_episodical_maximum_so_far = current_total_reward
+        if termination_reason == "GOAL_REACHED" and (current_total_reward < 0 or current_total_reward < 0):
+            # exit(-1)  
+            print("Error: Reward is negative while goal is reached", current_total_reward, termination_reason,
+                  "Total reward: ", request_fullfillment_reward, budget_efficiency_reward, stability_reward)
+            exit(-1)
+        # proposed_reward = np.interp(current_total_reward, [0, self.total_episodical_maximum_so_far], [-100*self.num_msps, 100*self.num_msps])
+        proposed_reward = current_total_reward
+        return proposed_reward
+
+def calculate_terminal_reward_new(self, termination_reason: str):
+        # Calculate overall request satisfaction ratio
+        total_msps_requests = sum(msp.num_requests for msp in self.msp_list)
+        total_fulfilled_requests = sum(msp.num_requests_fullfilled for msp in self.msp_list)
+        fulfillment_ratio = total_fulfilled_requests / total_msps_requests
+
+        # Main reward component based on fulfillment ratio
+        if termination_reason != "GOAL_REACHED":
+            satisfaction_reward = 100 - (fulfillment_ratio * 100)
+            satisfaction_reward *= -1
+        else:
+            satisfaction_reward = fulfillment_ratio * 100
+
+        # Budget efficiency - reward for efficient resource usage
+        initial_budgets = sum(msp.initial_budget for msp in self.msp_list)
+        remaining_budgets = sum(msp.get_budget() for msp in self.msp_list)
+        budget_ratio = remaining_budgets / initial_budgets
+        budget_efficiency_reward = budget_ratio * 40  # Reduced weight compared to satisfaction
+
+        # Stability reward - encourage consistent performance
+        immersiveness_variance = np.var(self.episode_overall_avg_imrvnss_lst)
+        stability_reward = -immersiveness_variance * 1000  # Reduced penalty
+        new_trying_reward = ((self.msps_quality_score) / self.num_msps) * -30
+
+        return satisfaction_reward + budget_efficiency_reward + new_trying_reward  # + stability_reward
+
+def calculate_terminal_reward_new2(self, termination_reason: str):
+        # Calculate overall request satisfaction ratio
+        total_msps_requests = sum(msp.num_requests for msp in self.msp_list)
+        total_fulfilled_requests = sum(msp.num_requests_fullfilled for msp in self.msp_list)
+        fulfillment_ratio = total_fulfilled_requests / total_msps_requests
+        assert fulfillment_ratio <= 1, f"Fulfillment ratio is greater than 1: {fulfillment_ratio}"
+
+        # Main reward component based on fulfillment ratio
+        if termination_reason != "GOAL_REACHED":
+            satisfaction_reward = 100 - (fulfillment_ratio * 100)
+            satisfaction_reward *= -1
+        else:
+            satisfaction_reward = fulfillment_ratio * 100
+
+        # Budget efficiency - reward for efficient resource usage
+        initial_budgets = round(sum(msp.initial_budget for msp in self.msp_list),2)
+        remaining_budgets = round(sum(msp.get_budget() for msp in self.msp_list),2)
+        budget_ratio = remaining_budgets / initial_budgets
+        budget_efficiency_reward = 0
+        if satisfaction_reward > 0:
+            budget_efficiency_reward = budget_ratio * 20  # Reduced weight compared to satisfaction
+        # else:
+        #     budget_efficiency_reward = budget_ratio * 10  # Reduced weight compared to satisfaction
+
+        # Stability reward - encourage consistent performance
+        immersiveness_variance = np.var(self.episode_overall_avg_imrvnss_lst)
+        stability_reward = -immersiveness_variance * 1000  # Reduced penalty
+        # new_trying_reward = ((self.msps_quality_score)/self.num_msps) * -30
+        quality_penalty = (self.num_msps - (np.clip(self.msps_quality_score, 0, self.num_msps))) * -15
+        # print("remaining_budgets: ", remaining_budgets, "initial_budgets: ", initial_budgets)
+
+        return round(satisfaction_reward + budget_efficiency_reward + quality_penalty,2)  # + stability_reward
+
+def calculate_terminal_reward_new3(self, termination_reason: str):
+
+        # acheiving the immersviness. 
+        final_rewards = [ ]
+        for msp in self.msp_list:
+            # print("msp.final_reward: ", msp.final_reward, "msp.heads_target_imm: ", msp.heads_target_imm)
+            final_rewards.append(np.clip(msp.final_reward/msp.heads_target_imm, 0, 1)*100)
+        # print("final_rewards: ", final_rewards)
+        minn = -100*self.num_msps
+        maxx = 100*self.num_msps
+        x = np.interp(sum(final_rewards), [0, 100*self.num_msps], [minn,maxx])
+        # Budget efficiency 
+        initial_budgets = round(sum(msp.initial_budget for msp in self.msp_list),2)
+        remaining_budgets = round(sum(msp.get_budget() for msp in self.msp_list),2)
+        y = np.interp(remaining_budgets/initial_budgets, [0,1], [0,0.1*maxx])
+        # print("remaining_budgets: ", remaining_budgets, "initial_budgets: ", initial_budgets)
+        r = round(x + y,2)
+        return r
+
+    def calculate_reward_new_intermediate(self, satisfiaction_penalities_dict):
+        """
+        Reward based on request satisfaction progress
+        """
+        total_satisfied_this_step = 0
+        total_heads = 0
+        satisfaction_progress = 0
+        sum_penalities = 0
+
+        for key, vals in satisfiaction_penalities_dict.items():
+            if vals["applied"]:
+                total_heads += vals["number_of_heads"]
+                total_satisfied_this_step += vals["num_satisfied_requests"]
+                sum_penalities += vals["penalities"]
+
+                # Calculate satisfaction progress for each MSP
+                # for target_imm, current_imm in [(rec["details"]["target_immersiveness"],
+                #                                  rec["details"]["current_immersiveness"])
+                #                                 for rec in vals["penalty_satisfaction_list"]]:
+                #     satisfaction_ratio = np.clip(current_imm / target_imm, 0, 1)
+                #     satisfaction_progress += satisfaction_ratio
+
+        # Average satisfaction progress across all heads
+        # avg_satisfaction = satisfaction_progress / total_heads if total_heads > 0 else 0
+
+        # Reward for this timestep
+        # reward = (total_satisfied_this_step / total_heads) #+ 0.5 * avg_satisfaction
+
+        if sum_penalities > 0:
+            reward = -1 * sum_penalities
+        else:
+            reward = 0.2  # all requests are satisfied.
+
+        # reward = -1 * sum_penalities
+
+        # special case: if no requests are satisfied, then penalize maximum.
+        if total_satisfied_this_step == 0:
+            reward = -1 * self.num_msps  # penalize maximum.
+
+        # reward = np.clip(reward, -0.5, 0.5)
+        # reward = np.clip(reward, -5, 5)
+        reward = np.clip(reward, -1 * self.num_msps, 1)
+
+        return reward, self.calculate_moving_average(reward)
+
+
+
+    def calculate_terminal_reward_new4(self, termination_reason: str):
+        reward_components = {}
+        total_b_finals = sum(msp.b_avg for msp in self.msp_list)
+        maximum_b_finals = self.num_msps
+        reward = 0
+
+        # Goal achievement and partial progress rewards
+        if total_b_finals == maximum_b_finals or termination_reason == "GOAL_REACHED":
+            reward += 80
+            reward_components["goal_achievement"] = 80
+            # Full budget efficiency reward when goal is reached
+            initial_budgets = round(sum(msp.initial_budget for msp in self.msp_list), 2)
+            remaining_budgets = round(sum(msp.get_budget() for msp in self.msp_list), 2)
+            reward += (remaining_budgets / initial_budgets) * 20
+            # reward +=
+            reward_components["budget_efficiency"] = remaining_budgets / initial_budgets * 20
+        else:
+            # Partial progress reward
+            completion_ratio = total_b_finals / maximum_b_finals
+            reward += completion_ratio * 30
+            reward_components["partial_progress"] = completion_ratio * 30
+            # Reduced budget efficiency reward when goal not reached
+            # if completion_ratio >= 0.7:  # Only if meaningful progress was made
+            #     initial_budgets = round(sum(msp.initial_budget for msp in self.msp_list),2)
+            #     remaining_budgets = round(sum(msp.get_budget() for msp in self.msp_list),2)
+            #     reward += round(remaining_budgets/initial_budgets,2) * 10  # Half the reward
+            #     reward_components["budget_efficiency2"] = round(remaining_budgets/initial_budgets,2) * 10
+        # Penalize early termination due to budget exhaustion
+        if termination_reason == "BUDG_FINISHED":
+            completion_ratio = total_b_finals / maximum_b_finals
+            if completion_ratio < 0.5:  # If less than 50% complete
+                reward *= completion_ratio  # Scale down reward
+                reward_components["budget_exhaustion"] = completion_ratio
+        # Consistency reward (receives 5 points if the variance is 0)
+        # msp_performances = [msp.b_final for msp in self.msp_list]
+        # performance_variance = np.var(msp_performances)
+        # consistency_reward = 5 * (1 - np.clip(performance_variance, 0, 1))  # Up to 5 points for consistency
+        # reward += consistency_reward
+        # reward_components["consistency"] = consistency_reward
+        assert reward < 130, f"Problem with the rewarding., reward: {reward}, reward_components: {reward_components}"
+        return reward
+
+
+
+
+    def is_done_new(self):
+        # 1. All MSPs budget is below threshold
+        count = sum(1 for m in self.msp_list if m.is_msp_finished_budget()[0])
+        if count == len(self.msp_list):
+            return True, "All MSPs budget is below threshold", "BUDG_FINISHED"
+
+        # 2. Max allowed timesteps reached (instead of waiting for all requests)
+        # if GlobalState.get_clock() >= self.max_clock:
+        if GlobalState.get_clock() >= max(msp.num_requests for msp in self.msp_list):
+            return True, "Time is up", "TIME_UP"
+
+        return False, "Not finished", "NOT_FINISHED"
