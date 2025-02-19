@@ -56,7 +56,8 @@ class MSP:
                  budget: float,
                  heads: List[Head],
                  num_requests: int,
-                 heads_target_imm: float
+                 heads_target_imm: float,
+                 neighbors = []
                  ):
         self.id: int = MSP._msp_id_counter
         self.heads_target_imm = heads_target_imm
@@ -64,6 +65,7 @@ class MSP:
         self.heads: List[Head] = heads
         self.accumulate_help = {}  # THE help received by other MSPs at a certain point in time.
         self.budget = budget
+        self.neighbors = neighbors
         # New :
         self.num_requests = num_requests  # this defines how many requests should be fillfilled
         self.num_requests_fullfilled = 0  # this defines how many requests have been filled (takes a decimal number)
@@ -126,9 +128,9 @@ class MSP:
         # Second check if msp can perform the least possible action 0.25,0.25,0.25,0.25 for its heads
         least_possible_perc = min(UNIVERSAL_POSSIBLE_PERCENTAGES)
         heads_actions = [(least_possible_perc, least_possible_perc, least_possible_perc) for _ in self.heads]
-        total_cost, total_immersiveness, temp_list, num_satisfied_requests, penalties, penalty_satisfaction_list = self.perform_mock_heads_action(
+        res_ = self.perform_mock_heads_action(
             heads_actions, debug=False)
-        if self.budget < total_cost:
+        if self.budget < res_["total_cost"]:
             self.budget = 0  # just to speed things up.
             return True, f"msp {self.id} action not possible, budget < least possible action"
         return False, f"msp {self.id} action possible, Budget is {self.budget}"
@@ -191,17 +193,18 @@ class MSP:
             full_payments.append(full)
         return sum(quarter_payments), sum(half_payments), sum(three_quarter_payments), sum(full_payments)
 
-    def apply_external_budget(self):
-        """
-        This function will apply the external budget to the heads after the budget is aggregated.
-        the budget is aggregated by @aggregate_res_budget function. 
-        """
-        system_clock = GlobalState.get_clock()
-        self.heads_history_struct['timestep'].append(system_clock)
-        for head in self.heads:
-            immerivenss, cost = head.apply_external_help()
-            self.heads_history_struct[f'{head.id}_immersiveness'].append(immerivenss)
-            self.heads_history_struct[f'{head.id}_cost'].append(cost)
+    # def apply_external_budget(self):
+    #     """
+    #     This function will apply the external budget to the heads after the budget is aggregated.
+    #     the budget is aggregated by @aggregate_res_budget function. 
+    #     """
+    #     system_clock = GlobalState.get_clock()
+    #     self.heads_history_struct['timestep'].append(system_clock)
+    #     for head in self.heads:
+    #         immerivenss, cost = head.apply_external_help()
+    #         self.heads_history_struct[f'{head.id}_immersiveness'].append(immerivenss)
+    #         self.heads_history_struct[f'{head.id}_cost'].append(cost)
+
 
     ################################## SIMULATION-RELATED FUNCTIONS ##################################  
     def get_possible_actions(self):
@@ -266,30 +269,31 @@ class MSP:
         """
 
         heads_actions = [all_heads_actions for all_heads_actions in action_tuple_list]
+        print("heads_actions=", heads_actions)
         # TODO: implement the external help here (sure in-sha-allah).
-        total_cost, total_immersiveness, temp_list, num_satisfied_requests, penalties, penalty_satisfaction_list = self.perform_mock_heads_action(
-            heads_actions, debug=True)
+        mock_res = self.perform_mock_heads_action(heads_actions, debug=True)
+
         res ={}
-        if total_cost <= self.budget:
-            self.commit_action(temp_list, total_cost, total_immersiveness, num_satisfied_requests)
-            self.add_to_heads(penalty_satisfaction_list, True)
+        if mock_res["total_cost"] <= self.budget:
+            self.commit_action(mock_res["temp_list"], mock_res["total_cost"], mock_res["total_immersiveness"], mock_res["num_satisfied_requests"])
+            self.add_to_heads(mock_res["penality_satisifaction_list"], True)
             
             res["action_flag"] = ACTION_DOABLE_AND_APPLIED
-            res['total_cost'] = total_cost
-            res['total_immersiveness'] = total_immersiveness
-            res['num_satisfied_requests'] = num_satisfied_requests
-            res['penalties'] = penalties
-            res['penalty_satisfaction_list'] = penalty_satisfaction_list
+            res['total_cost'] = mock_res["total_cost"]
+            res['total_immersiveness'] = mock_res["total_immersiveness"]
+            res['num_satisfied_requests'] = mock_res["num_satisfied_requests"]
+            res['penalties'] = mock_res["penalities"]
+            res['penalty_satisfaction_list'] = mock_res["penality_satisifaction_list"]
             return res
         else:
             # TODO: implement the external help here. (not sure)
-            self.add_to_heads(penalty_satisfaction_list, False)
+            self.add_to_heads(mock_res["penality_satisifaction_list"], False)
             res["action_flag"] = ACTION_NOT_DOABLE
-            res['total_cost'] = total_cost
-            res['total_immersiveness'] = total_immersiveness
-            res['num_satisfied_requests'] = num_satisfied_requests
-            res['penalties'] = penalties
-            res['penalty_satisfaction_list'] = penalty_satisfaction_list
+            res['total_cost'] = mock_res["total_cost"]
+            res['total_immersiveness'] = mock_res["total_immersiveness"]
+            res['num_satisfied_requests'] = mock_res["num_satisfied_requests"]
+            res['penalties'] = mock_res["penalities"]
+            res['penalty_satisfaction_list'] = mock_res["penality_satisifaction_list"]
             return res
 
     def add_to_heads(self, penalty_satisfaction_list, positive_hist_flag):
@@ -306,7 +310,7 @@ class MSP:
                 self.heads[head_index].moving_average_immersion.append(clipped_immersiveness)
             else:
                 self.heads[head_index].moving_average_immersion.append(0)
-
+    
     def perform_mock_heads_action(self, heads_actions, debug=False):
         """
         simulates the application of the action taken by the msp to all of its heads.
@@ -326,40 +330,35 @@ class MSP:
             total_cost += cost
             total_immersiveness += immerivenss
 
-            if immerivenss >= IMMERSIVNESS_FREEDOM * self.heads[i].get_target_immersiveness():
-                num_satisfied_requests += 1  # right now no penality for over immersiveness.
-                penality_over_res_allocate = calculate_penality(self.heads[i].get_target_immersiveness(),
-                                                                immerivenss,
-                                                                # mode="linear_sqr")
-                                                                mode="sigmoid")
-                #  mode="linear_sqr")
-
-                penalities += penality_over_res_allocate
-                # penality_satisifaction_list.append({"id": self.heads[i].id,"index": i, "penality": 0, "details": {
-                penality_satisifaction_list.append(
-                    {"id": self.heads[i].id, "index": i, "cost": cost, "penality": penality_over_res_allocate,
-                     "details": {
-                         "target_immersiveness": self.heads[i].get_target_immersiveness(),
-                         "current_immersiveness": immerivenss
-
-                     }
-                     })
-
+            target_immersiveness = self.heads[i].get_target_immersiveness()
+            penalty_mode = "sigmoid"
+            if immerivenss >= IMMERSIVNESS_FREEDOM * target_immersiveness:
+                num_satisfied_requests += 1
+                penalty = calculate_penality(target_immersiveness, immerivenss, mode=penalty_mode)
             else:
-                head_penality = calculate_penality(self.heads[i].get_target_immersiveness(), immerivenss,
-                                                   # mode="linear_sqr")
-                                                   mode="sigmoid")
-                penalities += head_penality
-                penality_satisifaction_list.append(
-                    {"id": self.heads[i].id, "index": i, "cost": cost, "penality": head_penality, "details": {
-                        "target_immersiveness": self.heads[i].get_target_immersiveness(),
-                        "current_immersiveness": immerivenss
+                penalty = calculate_penality(target_immersiveness, immerivenss, mode=penalty_mode)
 
-                    }
-                     })
+            penalities += penalty
+            penality_satisifaction_list.append({
+                "id": self.heads[i].id,
+                "index": i,
+                "cost": cost,
+                "penality": penalty,
+                "details": {
+                    "target_immersiveness": target_immersiveness,
+                    "current_immersiveness": immerivenss
+                }
+            })
 
             temp_list.append({"id": self.heads[i].id, "metrics": metrics})  # this is for the history.  
-        return total_cost, total_immersiveness, temp_list, num_satisfied_requests, penalities, penality_satisifaction_list
+        return {
+            "total_cost": total_cost,
+            "total_immersiveness": total_immersiveness,
+            "temp_list": temp_list,
+            "num_satisfied_requests": num_satisfied_requests,
+            "penalities": penalities,
+            "penality_satisifaction_list": penality_satisifaction_list
+        }
 
     def commit_action(self, temp_list, total_cost, total_immersiveness, num_satisfied_requests):
         """
@@ -379,6 +378,27 @@ class MSP:
         if num_satisfied_requests == len(self.heads):  # all of them are fullfilled.
             self.num_requests_fullfilled += 1
 
+
+    def get_cost_per_action(self):
+        """
+        In this function, either the action sequence is given or the action number is given.
+        an example of the action_seq is : [(1,1,1),(0.25,0.25,0.25)] for 2 heads. 
+        but almost in current version, I will use it with only one heads [(1,1,1)]
+        """
+        heads_actions = [[1,1,1] for _ in range(len(self.heads))]
+
+        mock = self.perform_mock_heads_action(heads_actions, debug=True)
+
+        # returns a dict of the cost for each of the configuration.
+        return {
+            0.25 : mock["total_cost"] * 0.25,
+            0.5 : mock["total_cost"] * 0.5,
+            0.75 : mock["total_cost"] * 0.75,
+            1 : mock["total_cost"]
+        }
+
+
+        
 # msp flow :
 # 1. the msp is intialized with the heads and budeg
 # 2. it generates the actions for the heads

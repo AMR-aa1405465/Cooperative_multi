@@ -18,7 +18,7 @@ class Test:
         # env = GameCoopEnv(run_name=self.name,max_clock=200,msps_requests=30)
         # env = GameCoopEnv(run_name=self.name,max_clock=200,msps_requests=50)
         # env = GameCoopEnv(run_name=self.name,max_clock=200,msps_requests=70)
-        env = GameCoopEnv(run_name=self.name, max_clock=200, msps_requests=5)
+        env = GameCoopEnv(run_name=self.name, max_clock=200, msps_requests=50)
         # to complete the development 
         # env.reset()
         # env.reset()
@@ -36,6 +36,7 @@ class Test:
                 # sample_action = [int(i) for i in user_sample.split(" ")]
                 # sample_action = [3 for _ in range(env.num_msps)]
                 # sample_action = [63,63,63]
+                # sample_action = [1,1,1]
                 # sample_action = [63,63,63]
                 # sample_action = [31,47,63]
                 # sample_action = [31,31,31]

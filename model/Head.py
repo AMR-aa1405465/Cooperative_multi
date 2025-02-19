@@ -96,26 +96,26 @@ class Head:
             assert self.accumulate_help[
                        system_clock] <= 1, f"Problem: accumulate_help[system_clock]:{self.accumulate_help[system_clock]} is not valid"
 
-    def apply_external_help(self):
-        """
-        (executed second)
-        This function applies the external help that was accumulated earlier from accumulate_help to the head.
-        """
-        system_clock = GlobalState.get_clock()
-        null_metrics = {
-            'total_cost': 0,
-            'immersiveness_score': 0,
-        }
-        if system_clock in self.accumulate_help:
-            help_percentage = self.accumulate_help[system_clock]
-            bitrate = self.room.max_bitrate * help_percentage
-            frame_rate = self.room.max_frame_rate * help_percentage
-            behavioral_accuracy = self.room.max_behavioral_accuracy * help_percentage
-            return self.allocate_resources(action=[bitrate, frame_rate, behavioral_accuracy], add_to_hist_flag=True)
-        else:
-            print("No external help was applied")
-            return self.allocate_resources(action=[NO_MONEY_SPENT_FLAG, NO_MONEY_SPENT_FLAG, NO_MONEY_SPENT_FLAG],
-                                           add_to_hist_flag=True)
+    # def apply_external_help(self):
+    #     """
+    #     (executed second)
+    #     This function applies the external help that was accumulated earlier from accumulate_help to the head.
+    #     """
+    #     system_clock = GlobalState.get_clock()
+    #     null_metrics = {
+    #         'total_cost': 0,
+    #         'immersiveness_score': 0,
+    #     }
+    #     if system_clock in self.accumulate_help:
+    #         help_percentage = self.accumulate_help[system_clock]
+    #         bitrate = self.room.max_bitrate * help_percentage
+    #         frame_rate = self.room.max_frame_rate * help_percentage
+    #         behavioral_accuracy = self.room.max_behavioral_accuracy * help_percentage
+    #         return self.allocate_resources(action=[bitrate, frame_rate, behavioral_accuracy], add_to_hist_flag=True)
+    #     else:
+    #         print("No external help was applied")
+    #         return self.allocate_resources(action=[NO_MONEY_SPENT_FLAG, NO_MONEY_SPENT_FLAG, NO_MONEY_SPENT_FLAG],
+    #                                        add_to_hist_flag=True)
 
     def get_needed_costs(self):
         """

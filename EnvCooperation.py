@@ -189,8 +189,12 @@ class GameCoopEnv(gym.Env):
         # print(f"@{self.__class__.__name__}, Info: actions: {action}")
         
         # Open to change the action space if continous 
-        action = [value_to_discrete(act) for act in action]
+        action = [value_to_discrete(act) for act in action] 
 
+        # split the action into two parts, one for the msps and one for the help. 
+
+        # apply the help first at this timestep... then do the complete pipeline. 
+        
         decoded_actions = self.parse_action(action, operation_mode=0)
         # print(f"@{self.__class__.__name__}, Info: Decoded actions: {decoded_actions}")
         res = self.apply_decoded_action(decoded_actions, operation_mode=0)
@@ -247,8 +251,8 @@ class GameCoopEnv(gym.Env):
                 msp.b_avg = b / len(msp.heads)  # this is the average of b for all heads of the msp
                 msp.achvd_immers = imm / len(msp.heads)
                 self.total_number_of_episodes_trained += 1
-                if self.total_number_of_episodes_trained%500 == 0:
-                    print("msp.achvd_immers: ", msp.achvd_immers, " msp.b_avg(85%): ", msp.b_avg)
+                # if self.total_number_of_episodes_trained%500 == 0:
+                print("msp.achvd_immers: ", msp.achvd_immers, " msp.b_avg(85%): ", msp.b_avg)
             qq = {f"msp_q_{_id}": val for _id, val in enumerate(q)}
             self.msps_quality_score = sum(val for val in qq.values())
 
@@ -651,8 +655,7 @@ class GameCoopEnv(gym.Env):
             # loop over msps. apply the action to each msp.
             for i in range(len(self.msp_list)):
                 # Check if the action is doable by the msp or not.
-                res = self.msp_list[i].check_apply_msp_action(
-                    decoded_actions[i])
+                res = self.msp_list[i].check_apply_msp_action(decoded_actions[i])
                 act_applied_flag = res["action_flag"]
                 total_cost = res["total_cost"]
                 total_immersiveness = res["total_immersiveness"]
