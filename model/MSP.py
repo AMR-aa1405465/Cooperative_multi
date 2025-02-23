@@ -174,6 +174,12 @@ class MSP:
         This function will increase the budget of the msp by the amount given unless it exceeds the initial budget.
         """
         self.budget = min(self.budget + amount, self.initial_budget)
+
+    def decrease_budget(self, amount):
+        """
+        This function will decrease the budget of the msp by the amount given.
+        """
+        self.budget = max(self.budget - amount, 0)
         
     ################################### MSP-RELATED FUNCTIONS ######################################
 

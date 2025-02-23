@@ -18,7 +18,7 @@ class Test:
         # env = GameCoopEnv(run_name=self.name,max_clock=200,msps_requests=30)
         # env = GameCoopEnv(run_name=self.name,max_clock=200,msps_requests=50)
         # env = GameCoopEnv(run_name=self.name,max_clock=200,msps_requests=70)
-        env = GameCoopEnv(run_name=self.name, max_clock=200, msps_requests=150)
+        env = GameCoopEnv(run_name=self.name, max_clock=200, msps_requests=10)
         # to complete the development 
         # env.reset()
         # env.reset()
@@ -53,6 +53,7 @@ class Test:
                 state, reward, done, trunc, info = env.step(sample_action)
                 rewards.append(reward)
                 decoded_actions = env.parse_action(sample_action, operation_mode=0)
+                print("BUdgets: ", [msp.get_budget() for msp in env.msp_list])
                 # print(f"@{self.name}, Info: State: {state}, Reward: {reward}, Done: {done}")
                 # print(f"@{self.name}, Info: Reward: {reward}, Done: {done}\n")
                 if done:

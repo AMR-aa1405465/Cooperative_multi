@@ -219,8 +219,6 @@ class GameCoopEnv(gym.Env):
         # print(f"@{self.__class__.__name__}, Info: action of MSPs to heads: {action_msps}")
         help_action = self.parse_help(action_copy[self.num_msps:])
         # print(f"@{self.__class__.__name__}, Info: help_action_parsed: {help_action}")
-        
-        # apply the help first at this timestep... then do the complete pipeline. 
         output_dict = self.apply_help(help_action)
         # print in green color
         print(f"\033[92m@{self.__class__.__name__}, Info: output_dict: {output_dict}\033[0m")
@@ -565,7 +563,7 @@ class GameCoopEnv(gym.Env):
         # setting used in limited budget case.
         # total_budget_per_msp = (30/3) *0.80 #0.45
 
-        msp1 = MSP(heads=[self.head_list[0]], budget=tot_bud, num_requests=msps_requests)
+        msp1 = MSP(heads=[self.head_list[0]], budget=5, num_requests=msps_requests)
         msp2 = MSP(heads=[self.head_list[1]], budget=tot_bud, num_requests=msps_requests)
         
         # msp3 = MSP(heads=[self.head_list[2]], budget=total_budget_per_msp, num_requests=msps_requests,
@@ -752,6 +750,7 @@ class GameCoopEnv(gym.Env):
         the help action is a list of numbers, each number represents the configuration index. 
         """
         output_dict = {msp.id: {"Helped": False,"Helped_list":[]} for msp in self.msp_list}
+        # loops over all msps. 
         for msp, help_val in zip(self.msp_list, help_action):
             # need to decode the help action for this specfic msp 
             decoded_help_ = msp.get_possible_help_actions()[0].get(help_val)
@@ -760,6 +759,7 @@ class GameCoopEnv(gym.Env):
                 continue
             else:
                 total_cost_of_help = 0
+                # loops over all neighbors of the msp.
                 for neighbor, help_percentage in zip(msp.neighbors, decoded_help_):
                     nei_tot_cost_100 = neighbor.get_cost_per_action().get(1)
                     # nei_tot_cost_75 = neighbor.get_cost_per_action().get(0.75)
@@ -778,17 +778,21 @@ class GameCoopEnv(gym.Env):
                 if cond1 and cond2: 
                     print(f"\033[94m@{self.__class__.__name__}, Info: cond1: {cond1}, cond2: {cond2}\033[0m")
                     # apply the help.
+                    # loops over all neighbors of the msp.
                     for neighbor, help_percentage in zip(msp.neighbors, decoded_help_):
                         nei_tot_cost_100 = neighbor.get_cost_per_action().get(1)
                         # increase the budget of neighbor 
                         cond3 = neighbor.is_msp_finished_budget()[0] # checks if the neighbor needs help or not.
                         # cond3 = False # checks if the neighbor needs help or not.
-                        # print(neighbor.get_budget_percentage())
                         print(f"\033[94m@{self.__class__.__name__}, Info: cond3: {cond3}\033[0m")
                         if cond3:
-                            neighbor.increase_budget(nei_tot_cost_100 * help_percentage)
+                            amount = nei_tot_cost_100 * help_percentage
+                            neighbor.increase_budget(amount)
+                            msp.decrease_budget(amount)
                             output_dict[msp.id]["Helped_list"].append(neighbor.id)
                             output_dict[msp.id]["Helped"] = True
+                            # print in red color.
+                            print(f"\033[91m@{self.__class__.__name__}, Info: {msp.id} helped {neighbor.id} with {amount} \033[0m")
 
         return output_dict
 
@@ -1073,3 +1077,5 @@ class GameCoopEnv(gym.Env):
 
         #assert reward < 130, f"Problem with the rewarding., reward: {reward}, reward_components: {reward_components}"
         return reward
+
+# I think it is going well, I need just to try and see what i get. 
