@@ -23,3 +23,5 @@ ACTION_NOT_DOABLE = 0
 PENALITY_WEIGHT = 10
 MOVING_AVERAGE_WINDOW = 30
 IMMERSIVNESS_FREEDOM = 0.98
+PERC_TO_KEEP = 0.25 # the percentage of the budget that the msp should keep after helping.
+LOWER_BUDGET_THRESHOLD = 0.25 # the threshold for the budget to be considered as low.

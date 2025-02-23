@@ -7,6 +7,7 @@ The action for the msp is given *currently* by the DRL agent.
 I need to create a function that will create a list of possible actions for the msp 
 according to the number of heads it has. 
 """
+import itertools
 from typing import List, Tuple
 
 import numpy as np
@@ -14,7 +15,7 @@ import numpy as np
 from helpers import Constants
 from .Head import Head
 from helpers.GlobalState import GlobalState
-from helpers.Constants import (ACTION_DOABLE_AND_APPLIED, ACTION_NOT_DOABLE, PENALITY_WEIGHT,
+from helpers.Constants import (ACTION_DOABLE_AND_APPLIED, ACTION_NOT_DOABLE, LOWER_BUDGET_THRESHOLD, PENALITY_WEIGHT,
                                UNIVERSAL_POSSIBLE_PERCENTAGES, IMMERSIVNESS_FREEDOM)
 
 
@@ -56,16 +57,17 @@ class MSP:
                  budget: float,
                  heads: List[Head],
                  num_requests: int,
-                 heads_target_imm: float,
+                 # heads_target_imm: float,
                  neighbors = []
                  ):
         self.id: int = MSP._msp_id_counter
-        self.heads_target_imm = heads_target_imm
+        # self.heads_target_imm = heads_target_imm
         MSP._msp_id_counter += 1
+        self.computed_before = False
         self.heads: List[Head] = heads
         self.accumulate_help = {}  # THE help received by other MSPs at a certain point in time.
         self.budget = budget
-        self.neighbors = neighbors
+        self.neighbors: List[MSP] = []
         # New :
         self.num_requests = num_requests  # this defines how many requests should be fillfilled
         self.num_requests_fullfilled = 0  # this defines how many requests have been filled (takes a decimal number)
@@ -79,10 +81,16 @@ class MSP:
         self.total_help_received = 0  # the total help received by this msp for a whole episode.
         self.actions_generated = False
         self.actions_dict, self.number_of_actions = self.get_possible_actions()
+        # added new : 
+        self.help_percentages, self.num_help_perc = None, None # to be set manually. 
         self.heads_history_struct = self.generate_heads_history()
         self.check_msp()
         # used for the env state, if number of clinets increases.
         self.initial_num_clients = self.get_total_num_clients()
+
+    def add_neighbor(self, neighbor):
+        self.neighbors.append(neighbor)
+        self.help_percentages, self.num_help_perc = self.get_possible_help_actions()
 
     def generate_heads_history(self):
         """
@@ -114,7 +122,13 @@ class MSP:
         """
         This function will return True if the msp has requested help from other msps.
         """
-        return self.budget <= 0 or self.budget <= self.initial_budget * 0.25
+        return self.budget <= 0 or self.budget <= (self.initial_budget * LOWER_BUDGET_THRESHOLD)
+    
+    def get_budget_percentage(self):
+        """
+        This function will return the percentage of the budget that the msp has used.
+        """
+        return self.budget / self.initial_budget
 
     def is_msp_finished_budget(self):
         """
@@ -122,14 +136,15 @@ class MSP:
         @return true or false, and a message indicating the reason.
         @note: the least possible action is 0.25,0.25,0.25,0.25 for its heads.
         """
+        # TODO : Maybe need to optimizate this function as I am calling it in multiple places.
+
         # first check if budget <= 0 .
         if self.budget <= 0:
             return True, f"msp {self.id} action not possible, Budget is 0"
         # Second check if msp can perform the least possible action 0.25,0.25,0.25,0.25 for its heads
         least_possible_perc = min(UNIVERSAL_POSSIBLE_PERCENTAGES)
         heads_actions = [(least_possible_perc, least_possible_perc, least_possible_perc) for _ in self.heads]
-        res_ = self.perform_mock_heads_action(
-            heads_actions, debug=False)
+        res_ = self.perform_mock_heads_action(heads_actions, debug=False)
         if self.budget < res_["total_cost"]:
             self.budget = 0  # just to speed things up.
             return True, f"msp {self.id} action not possible, budget < least possible action"
@@ -153,45 +168,53 @@ class MSP:
 
     def get_num_heads(self):
         return len(self.heads)
-
+    
+    def increase_budget(self, amount):
+        """
+        This function will increase the budget of the msp by the amount given unless it exceeds the initial budget.
+        """
+        self.budget = min(self.budget + amount, self.initial_budget)
+        
     ################################### MSP-RELATED FUNCTIONS ######################################
 
-    def aggregate_res_budget(self, budget_percentage):
+    def aggregate_res_budget(self, money_received):
         # Keep track of the help received by this msp at a certain point in time.
 
         system_clock = GlobalState.get_clock()
 
         if self.accumulate_help.get(system_clock, 0) == 0:
-            self.accumulate_help[system_clock] = budget_percentage
-            self.heads_history_struct['help_received_with_time'].append(budget_percentage)
+            self.accumulate_help[system_clock] = money_received
+            # self.heads_history_struct['help_received_with_time'].append(money_received)
         else:
-            self.accumulate_help[system_clock] += budget_percentage
-            val = self.heads_history_struct['help_received_with_time'].pop()
-            self.heads_history_struct['help_received_with_time'].append(val + budget_percentage)
-        # update the heads with the help received.
-        for head in self.heads:
-            head.accumulate_help(budget_percentage)
+            self.accumulate_help[system_clock] += money_received
+            # val = self.heads_history_struct['help_received_with_time'].pop()
+            # self.heads_history_struct['help_received_with_time'].append(val + budget_percentage)
+    
+        # there is no need for that.
+        # # update the heads with the help received.
+        # for head in self.heads:
+        #     head.accumulate_help(budget_percentage)
 
-    def get_total_payment_per_percentage(self):
-        """
-        This function will return the total payment for the 33%, 66% and 100% of the total cost needed for 
-        the virtual room with for this msp.
-        (to be used when this msp gets helped by others so that we can split the payment of this msp among helpers.)
+    # def get_total_payment_per_percentage(self):
+    #     """
+    #     This function will return the total payment for the 33%, 66% and 100% of the total cost needed for 
+    #     the virtual room with for this msp.
+    #     (to be used when this msp gets helped by others so that we can split the payment of this msp among helpers.)
         
-        @return: (quarter_payments 25% of total cost, half_payments 50% of total cost, three_quarter_payments 75% of total cost, full_payments 100% of total cost)
-        of all the heads this msp serves.
-        """
-        quarter_payments = []
-        half_payments = []
-        three_quarter_payments = []
-        full_payments = []
-        for head in self.heads:
-            quarter, half, three_quarter, full = head.get_needed_costs()
-            quarter_payments.append(quarter)
-            half_payments.append(half)
-            three_quarter_payments.append(three_quarter)
-            full_payments.append(full)
-        return sum(quarter_payments), sum(half_payments), sum(three_quarter_payments), sum(full_payments)
+    #     @return: (quarter_payments 25% of total cost, half_payments 50% of total cost, three_quarter_payments 75% of total cost, full_payments 100% of total cost)
+    #     of all the heads this msp serves.
+    #     """
+    #     quarter_payments = []
+    #     half_payments = []
+    #     three_quarter_payments = []
+    #     full_payments = []
+    #     for head in self.heads:
+    #         quarter, half, three_quarter, full = head.get_needed_costs()
+    #         quarter_payments.append(quarter)
+    #         half_payments.append(half)
+    #         three_quarter_payments.append(three_quarter)
+    #         full_payments.append(full)
+    #     return sum(quarter_payments), sum(half_payments), sum(three_quarter_payments), sum(full_payments)
 
     # def apply_external_budget(self):
     #     """
@@ -204,6 +227,31 @@ class MSP:
     #         immerivenss, cost = head.apply_external_help()
     #         self.heads_history_struct[f'{head.id}_immersiveness'].append(immerivenss)
     #         self.heads_history_struct[f'{head.id}_cost'].append(cost)
+    
+    def get_possible_help_actions(self):
+        """
+        Generate all possible combinations of help values for neighbors
+        Each neighbor can have help values from 0.1 to 0.9 in steps of 0.1
+        Returns a list of lists where each inner list contains dictionaries with index and help values
+        """
+        if self.computed_before:
+            return self.combinations_dict, self.combinations_num
+
+        combinations = []
+        help_values = np.arange(0, 0.8, 0.2)
+        
+        # Generate all possible combinations of help values for each neighbor
+        num_neighbors = len(self.neighbors)
+        for help_values_combination in itertools.product(help_values, repeat=num_neighbors):
+            combination = []
+            for help_value in help_values_combination:
+                combination.append(help_value)
+            combinations.append(combination)
+        
+        self.computed_before = True
+        self.combinations_dict = dict(enumerate(combinations))
+        self.combinations_num = len(combinations)
+        return self.combinations_dict, self.combinations_num
 
 
     ################################## SIMULATION-RELATED FUNCTIONS ##################################  
@@ -272,6 +320,7 @@ class MSP:
         print("heads_actions=", heads_actions)
         # TODO: implement the external help here (sure in-sha-allah).
         mock_res = self.perform_mock_heads_action(heads_actions, debug=True)
+        self.get_cost_per_action()
 
         res ={}
         if mock_res["total_cost"] <= self.budget:
@@ -379,23 +428,35 @@ class MSP:
             self.num_requests_fullfilled += 1
 
 
+
     def get_cost_per_action(self):
         """
         In this function, either the action sequence is given or the action number is given.
         an example of the action_seq is : [(1,1,1),(0.25,0.25,0.25)] for 2 heads. 
         but almost in current version, I will use it with only one heads [(1,1,1)]
         """
-        heads_actions = [[1,1,1] for _ in range(len(self.heads))]
+        heads_actions_hundered = [[1,1,1] for _ in range(len(self.heads))]
+        heads_actions_25 = [[0.25,0.25,0.25] for _ in range(len(self.heads))]
+        heads_actions_50 = [[0.5,0.5,0.5] for _ in range(len(self.heads))]
+        heads_actions_75 = [[0.75,0.75,0.75] for _ in range(len(self.heads))]
+        # later on, I can use a list of actions and choose the highest one of them according to the summation of the accumulated help.
 
-        mock = self.perform_mock_heads_action(heads_actions, debug=True)
+        # checking the cost of 1, 0.75, 0.5, 0.25
+        mock_hundered = self.perform_mock_heads_action(heads_actions_hundered, debug=True)
+        mock_25 = self.perform_mock_heads_action(heads_actions_25, debug=True)
+        mock_50 = self.perform_mock_heads_action(heads_actions_50, debug=True)
+        mock_75 = self.perform_mock_heads_action(heads_actions_75, debug=True)
+        # can add more combinations here.
 
         # returns a dict of the cost for each of the configuration.
-        return {
-            0.25 : mock["total_cost"] * 0.25,
-            0.5 : mock["total_cost"] * 0.5,
-            0.75 : mock["total_cost"] * 0.75,
-            1 : mock["total_cost"]
+        result = {
+            0.25 : mock_25["total_cost"], # the minimum cost
+            0.5 : mock_50["total_cost"], 
+            0.75 : mock_75["total_cost"],
+            1 : mock_hundered["total_cost"] # the maximum cost
         }
+        print(f"@Info:{self.__class__.__name__}, result={result}")
+        return result
 
 
         

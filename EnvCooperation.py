@@ -19,7 +19,7 @@ from gymnasium.core import ActType
 from gymnasium.spaces import Box
 
 # from HierancyRewarding import HierarchicalRewardCalculator
-from helpers.Constants import MOVING_AVERAGE_WINDOW, HeadType, ACTION_DOABLE_AND_APPLIED
+from helpers.Constants import PERC_TO_KEEP, MOVING_AVERAGE_WINDOW, HeadType, ACTION_DOABLE_AND_APPLIED
 from helpers.GlobalState import GlobalState
 from model.Head import Head
 from model.MSP import MSP
@@ -76,6 +76,15 @@ def value_to_discrete(value):
 
     return discrete_value
 
+def help_value_to_discrete(value,max_value):
+    """
+    This function takes a value from -1 to 1 and outputs a discrete number from 0 to 4 inclusive.
+    Each discrete value represents an equal-width bin in the continuous space.
+    """
+    assert -1 <= value <= 1, "Value must be between -1 and 1 inclusive."
+    normalized_value = (value + 1) / 2
+    discrete_value = min(int(normalized_value * max_value), max_value-1)
+    return discrete_value
 
 class GameCoopEnv(gym.Env):
     """
@@ -166,41 +175,63 @@ class GameCoopEnv(gym.Env):
         # self.action_space_config = [m.get_possible_actions()[1] for m in self.msp_list]
         # print("self.action_space_config=", self.action_space_config)
         # self.action_space_config = [m.get_possible_actions()[1] for _ in range(m.get_num_heads()) for m in
-        # self.msp_list] self.action_space_config = [m.get_possible_actions()[1] for m in self.msp_list]
-        
+        # self.msp_list] 
+        # self.action_space_config = [m.get_possible_actions()[1] for m in self.msp_list]
+        self.help_action_space_config = [m.get_possible_help_actions()[1] for m in self.msp_list]
+        # print("Sample is ", self.msp_list[0].get_possible_help_actions()[0])
+        # create the actions of help to be -1 to 1 
+        print(f"@{self.__class__.__name__}, Info: Help action space config: {self.help_action_space_config}")
         # Open to change the action space to discrete 
         # self.action_space = spaces.MultiDiscrete(self.action_space_config)
 
-       # Changed to a continuous action space.
+       # Changed to a continuous action space. without the help action space.
+        # self.action_space = Box(
+        #     low=np.array([-1.0 for _ in range(self.num_msps)]),
+        #     high=np.array([1.0 for _ in range(self.num_msps)]),
+        #     dtype=np.float64)
+        
+        # Changed to a continuous action space. with the help action space.
         self.action_space = Box(
-            low=np.array([-1.0 for _ in range(self.num_msps)]),
-            high=np.array([1.0 for _ in range(self.num_msps)]),
+            low=np.array([-1.0 for _ in range(self.num_msps + self.num_msps)]),
+            high=np.array([1.0 for _ in range(self.num_msps + self.num_msps)]),
             dtype=np.float64)
         
         print(f"@{self.__class__.__name__}, Info: Action space created with shape: {self.action_space.shape}")
-
+    def parse_help(self,partial_action):
+        """
+        This function is used to parse the help from the action.
+        """
+        # the input is a list of values of -1 to 1 indicating the help configuration. 
+        output = [help_value_to_discrete(val,max_value=m.get_possible_help_actions()[1]) for val,m in zip(partial_action,self.msp_list)]
+        return output
+    
     def step(self, action: ActType):
         """
         This function is used to take a step in the environment.
         """
         # in this setting, the action includes the choice of msp(0) ... msp(N)
-        # print(f"@{self.__class__.__name__}, Info: Action: {action}")
+        print(f"@{self.__class__.__name__}, Info: Action: {action}")
         # 1. decode the action per each msp & send it to the msp.
-        # print(f"@{self.__class__.__name__}, Info: actions: {action}")
-        
         # Open to change the action space if continous 
-        action = [value_to_discrete(act) for act in action] 
-
-        # split the action into two parts, one for the msps and one for the help. 
-
-        # apply the help first at this timestep... then do the complete pipeline. 
+        action_copy = action[:] # represents the full action. 
+        # print(f"@{self.__class__.__name__}, Info: full action: {action_copy}")
+        action_msps = [value_to_discrete(act) for act in action_copy[:self.num_msps]] 
+        # print(f"@{self.__class__.__name__}, Info: action of MSPs to heads: {action_msps}")
+        help_action = self.parse_help(action_copy[self.num_msps:])
+        # print(f"@{self.__class__.__name__}, Info: help_action_parsed: {help_action}")
         
-        decoded_actions = self.parse_action(action, operation_mode=0)
+        # apply the help first at this timestep... then do the complete pipeline. 
+        output_dict = self.apply_help(help_action)
+        # print in green color
+        print(f"\033[92m@{self.__class__.__name__}, Info: output_dict: {output_dict}\033[0m")
+        
+        decoded_actions = self.parse_action(action_msps, operation_mode=0)
         # print(f"@{self.__class__.__name__}, Info: Decoded actions: {decoded_actions}")
         res = self.apply_decoded_action(decoded_actions, operation_mode=0)
 
         # recording some of the stats.
         total_cost = res["total_cost"]  # total cost of doing that action.
+        print(f"@{self.__class__.__name__}, Info: Total cost: {total_cost}")
         total_imm = res['total_imm']  # Total immersion of that action.
         num_msps_applied = res['num_msps_applied']  # Number of msps applied.
         # sat_pen = res['sat_pen'] # satisfaction & penality.
@@ -416,7 +447,6 @@ class GameCoopEnv(gym.Env):
                                      "GALLERY"], f"@{self.__class__.__name__}, Error: Invalid room type: {room_type}"
         if room_type.upper() == "LIBRARY":
             return VirtualRoom(
-
                 min_bitrate=20,
                 max_bitrate=25,
                 min_frame_rate=30,
@@ -528,24 +558,27 @@ class GameCoopEnv(gym.Env):
         #     f"@{self.__class__.__name__}, Info: Created 2 heads, first has {head1.num_users} users and second has {head2.num_users} users")
 
     def create_msps(self, msps_requests: int = 50):
-        total_budget_per_msp = 700 / 3
+        tot_bud = 700 / 3
         # total_budget_per_msp = 37/3
         # total_budget_per_msp = 29/3 # maximum config cost  of 63,63,63 
 
         # setting used in limited budget case.
         # total_budget_per_msp = (30/3) *0.80 #0.45
 
-        msp1 = MSP(heads=[self.head_list[0]], budget=total_budget_per_msp, num_requests=msps_requests,
-                   heads_target_imm=0.85)
-        msp2 = MSP(heads=[self.head_list[1]], budget=total_budget_per_msp, num_requests=msps_requests,
-                   heads_target_imm=0.85)
-        msp3 = MSP(heads=[self.head_list[2]], budget=total_budget_per_msp, num_requests=msps_requests,
-                   heads_target_imm=0.85)
+        msp1 = MSP(heads=[self.head_list[0]], budget=tot_bud, num_requests=msps_requests)
+        msp2 = MSP(heads=[self.head_list[1]], budget=tot_bud, num_requests=msps_requests)
+        
+        # msp3 = MSP(heads=[self.head_list[2]], budget=total_budget_per_msp, num_requests=msps_requests,
+        #            heads_target_imm=0.85)
         # msp4 = MSP(heads=[self.head_list[3]], budget=total_budget_per_msp, num_requests=msps_requests, heads_target_imm=0.85)
         # msp5 = MSP(heads=[self.head_list[4]], budget=total_budget_per_msp, num_requests=msps_requests, heads_target_imm=0.85)
         self.msp_list.append(msp1)
         self.msp_list.append(msp2)
-        self.msp_list.append(msp3)
+
+        msp1.add_neighbor(msp2)
+        msp2.add_neighbor(msp1)
+
+        # self.msp_list.append(msp3)
         # self.msp_list.append(msp4)
         # self.msp_list.append(msp5)
         for msp in self.msp_list:
@@ -655,6 +688,7 @@ class GameCoopEnv(gym.Env):
             # loop over msps. apply the action to each msp.
             for i in range(len(self.msp_list)):
                 # Check if the action is doable by the msp or not.
+                # todo: before the check apply add the help received to the msp.
                 res = self.msp_list[i].check_apply_msp_action(decoded_actions[i])
                 act_applied_flag = res["action_flag"]
                 total_cost = res["total_cost"]
@@ -711,6 +745,52 @@ class GameCoopEnv(gym.Env):
             # return _timestep_total_cost, _timestep_total_immersiveness, _timestep_num_msps_applied, satisfiaction_penalities_dict
         else:
             raise ValueError(f"Unknown operation mode: {operation_mode}")
+
+    def apply_help(self, help_action):
+        """
+        This function is used to apply the help to the neighbors of the msps.
+        the help action is a list of numbers, each number represents the configuration index. 
+        """
+        output_dict = {msp.id: {"Helped": False,"Helped_list":[]} for msp in self.msp_list}
+        for msp, help_val in zip(self.msp_list, help_action):
+            # need to decode the help action for this specfic msp 
+            decoded_help_ = msp.get_possible_help_actions()[0].get(help_val)
+            # print(f"@{self.__class__.__name__}, Info: MSP {msp.id} decoded_help_: {decoded_help_}")
+            if all(x == 0 for x in decoded_help_):
+                continue
+            else:
+                total_cost_of_help = 0
+                for neighbor, help_percentage in zip(msp.neighbors, decoded_help_):
+                    nei_tot_cost_100 = neighbor.get_cost_per_action().get(1)
+                    # nei_tot_cost_75 = neighbor.get_cost_per_action().get(0.75)
+                    total_cost_of_help += nei_tot_cost_100 * help_percentage
+                # after collecting the cost of the help, we need to assign this help to the neighbor (only if budget allows.)
+
+                # check if the budget allows the help.
+                msp_budget = msp.get_budget()
+                msp_initial_budget = msp.initial_budget
+                # checks if we have enough budget to help.
+                
+                cond1 = msp_budget > total_cost_of_help 
+                # checks if we have enough budget to keep after applying the help.
+                # cond2 = (msp_budget - total_cost_of_help) > (msp_initial_budget * PERC_TO_KEEP) 
+                cond2 = True 
+                if cond1 and cond2: 
+                    print(f"\033[94m@{self.__class__.__name__}, Info: cond1: {cond1}, cond2: {cond2}\033[0m")
+                    # apply the help.
+                    for neighbor, help_percentage in zip(msp.neighbors, decoded_help_):
+                        nei_tot_cost_100 = neighbor.get_cost_per_action().get(1)
+                        # increase the budget of neighbor 
+                        cond3 = neighbor.is_msp_finished_budget()[0] # checks if the neighbor needs help or not.
+                        # cond3 = False # checks if the neighbor needs help or not.
+                        # print(neighbor.get_budget_percentage())
+                        print(f"\033[94m@{self.__class__.__name__}, Info: cond3: {cond3}\033[0m")
+                        if cond3:
+                            neighbor.increase_budget(nei_tot_cost_100 * help_percentage)
+                            output_dict[msp.id]["Helped_list"].append(neighbor.id)
+                            output_dict[msp.id]["Helped"] = True
+
+        return output_dict
 
     def calculate_reward_new(self, satisfiaction_penalities_dict):
         """

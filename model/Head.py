@@ -142,25 +142,16 @@ class Head:
         and return the satisfaction, immerviness and cost.
         """
         # we have four components in the action: Bitrate, frame rate, beahav accuracy. (Rotation speed is fixed)
-        # bitrate = action[0] * self.room.max_bitrate
-        # frame_rate = action[1] * self.room.max_frame_rate
-        # behavioral_accuracy = action[2] * self.room.max_behavioral_accuracy
         bitrate = np.interp(action[0], [0.25, 1], [self.room.min_bitrate, self.room.max_bitrate])
         frame_rate = np.interp(action[1], [0.25, 1], [self.room.min_frame_rate, self.room.max_frame_rate])
         behavioral_accuracy = np.interp(action[2], [0.25, 1],
                                         [self.room.min_behavioral_accuracy, self.room.max_behavioral_accuracy])
         metrics = None
-        if bitrate == frame_rate == behavioral_accuracy == NO_MONEY_SPENT_FLAG:
-            metrics = {
-                'immersiveness_score': 0,
-                'total_cost': 0
-            }
-        else:
             # apply the action to the room
-            metrics = self.room.calculate_metrics(given_bitrate=bitrate,
-                                                  num_heads_clients=self.num_users,
-                                                  behavioral_accuracy=behavioral_accuracy,
-                                                  given_frame_rate=frame_rate)
+        metrics = self.room.calculate_metrics(given_bitrate=bitrate,
+                                                num_heads_clients=self.num_users,
+                                                behavioral_accuracy=behavioral_accuracy,
+                                                given_frame_rate=frame_rate)
 
         if add_to_hist_flag:
             assert self.counter not in self.hist, f"Problem: Key:{self.counter} already in hist"

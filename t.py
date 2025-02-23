@@ -18,7 +18,7 @@ class Test:
         # env = GameCoopEnv(run_name=self.name,max_clock=200,msps_requests=30)
         # env = GameCoopEnv(run_name=self.name,max_clock=200,msps_requests=50)
         # env = GameCoopEnv(run_name=self.name,max_clock=200,msps_requests=70)
-        env = GameCoopEnv(run_name=self.name, max_clock=200, msps_requests=50)
+        env = GameCoopEnv(run_name=self.name, max_clock=200, msps_requests=150)
         # to complete the development 
         # env.reset()
         # env.reset()
@@ -28,10 +28,13 @@ class Test:
         # print("-----------------------------------------------")
         for episode in range(1):
             env.reset()
+            print("---------------------------------------------------------\n\n")
             done = False
             rewards = []
             while not done: 
                 sample_action = env.action_space.sample()
+                # sample_action = [0,0,0]
+                # sample_action = [63,63,63]
                 # user_sample = input(f"enter an action of length {env.num_msps}: ")
                 # sample_action = [int(i) for i in user_sample.split(" ")]
                 # sample_action = [3 for _ in range(env.num_msps)]
