@@ -79,6 +79,7 @@ class MSP:
         #
         self.initial_budget = budget
         self.total_help_received = 0  # the total help received by this msp for a whole episode.
+        self.total_helped_times = 0  # the total times this msp helped other msps.
         self.actions_generated = False
         self.actions_dict, self.number_of_actions = self.get_possible_actions()
         # added new : 
@@ -303,6 +304,7 @@ class MSP:
         self.budget = self.initial_budget
         self.accumulate_help.clear()
         self.total_help_received = 0
+        self.total_helped_times = 0
         self.num_requests_fullfilled = 0
         self.num_requests_done = 0
         self.heads_history_struct.clear()

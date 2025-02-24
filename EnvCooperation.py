@@ -299,8 +299,8 @@ class GameCoopEnv(gym.Env):
                 "num_requests_fulfilled": sum(m.num_requests_fullfilled for m in self.msp_list),
                 "last_num_msps_applied": self.last_num_msps_applied,
                 "total_reward": sum(self.total_timestep_reward),
-                "moving_avg_reward": sum(self.moving_average_timestep_reward),
-                "average_reward_per_steps": sum(self.total_timestep_reward) / GlobalState.get_clock(),
+                # "moving_avg_reward": sum(self.moving_average_timestep_reward),
+                # "average_reward_per_steps": sum(self.total_timestep_reward) / GlobalState.get_clock(),
                 "total_cost": sum(self.episode_total_cost_lst),
                 "avg_cost_per_client": sum(self.episode_avg_cost_per_client),
                 "avg_cost_alive": sum(self.episode_avg_cost_alive_lst),
@@ -314,6 +314,8 @@ class GameCoopEnv(gym.Env):
                 "total_budget": total_budget,
                 "remaining_budget": remaining_budget,
                 "consumed_budget": total_budget - remaining_budget,
+                "total_helped_times": sum(m.total_helped_times for m in self.msp_list), # can put it per msp if needed.
+                "total_help_received": sum(m.total_help_received for m in self.msp_list), # can put it per msp if needed.
                 "runname": self.run_name,
             })
             row_data = concatenate_dicts(row_data, msps_budgets)
@@ -622,26 +624,30 @@ class GameCoopEnv(gym.Env):
         d) help requests 
         """
         s = []
-        budgets_left = [normalize_value(m.get_budget(), 0, m.initial_budget) for m in self.msp_list]
+        # This was working previously. for comparison or whatever please change it back.
+        # budgets_left = [normalize_value(m.get_budget(), 0, m.initial_budget) for m in self.msp_list] # absolute value.
+
+        budgets_left = [normalize_value(m.get_budget_percentage(), 0, 1) for m in self.msp_list]
+        s.extend(budgets_left)  # budget left for each msp.
+        
         # the total users is normalized betwen 0 and the maximum number of users that can be handled by virtual rooms
         # hosted by the heads which the msp serves.
-        total_users = [normalize_value(m.get_total_num_clients(), 0, sum(head.room.max_users for head in m.heads))
-                       for m in self.msp_list]
         system_clock = GlobalState.get_clock()
 
         # todo: open in the second phase.
         # help_requests = [self.normalize_value(m.need_help(), 0, 1) for m in self.msp_list]
+        # time_roll = self.normalize_value(system_clock, 0, self.max_clock)
+        time_roll = normalize_value(system_clock, 0, max(msp.num_requests for msp in self.msp_list))
+        s.append(time_roll)  #clock
+        
+        total_users = [normalize_value(m.get_total_num_clients(), 0, sum(head.room.max_users for head in m.heads))
+                       for m in self.msp_list]
         msps_finished = [normalize_value(m.is_msp_finished_budget()[0], 0, 1) for m in self.msp_list]
         msps_requests_fulfilled = [normalize_value(m.num_requests_fullfilled / m.num_requests, 0, 1) for m in
                                    self.msp_list]
-        # time_roll = self.normalize_value(system_clock, 0, self.max_clock)
-        time_roll = normalize_value(system_clock, 0, max(msp.num_requests for msp in self.msp_list))
-
-        s.extend(budgets_left)  # budget left for each msp.
-
         #s.extend(total_users) # total number of users each msp serves. (used for scaling)
         #s.extend(msps_finished)  # if msp budget finished or not.
-        s.append(time_roll)  # clock
+       
         # s.extend(msps_requests_fulfilled)  # the percentage of requests that are fulfilled.
         return np.array(s)
 
@@ -791,6 +797,8 @@ class GameCoopEnv(gym.Env):
                             msp.decrease_budget(amount)
                             output_dict[msp.id]["Helped_list"].append(neighbor.id)
                             output_dict[msp.id]["Helped"] = True
+                            msp.total_helped_times += 1
+                            neighbor.total_help_received += amount 
                             # print in red color.
                             print(f"\033[91m@{self.__class__.__name__}, Info: {msp.id} helped {neighbor.id} with {amount} \033[0m")
 
@@ -1079,3 +1087,4 @@ class GameCoopEnv(gym.Env):
         return reward
 
 # I think it is going well, I need just to try and see what i get. 
+# Maybe need to see what should be changed about the number of steps and what not. 
