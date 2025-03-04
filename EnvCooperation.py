@@ -312,15 +312,17 @@ class GameCoopEnv(gym.Env):
             # Write the following to the file.
             total_budget = sum(m.initial_budget for m in self.msp_list)
             remaining_budget = sum(m.get_budget() for m in self.msp_list)
+            reqs_fullfilled = sum(m.num_requests_fullfilled for m in self.msp_list)
+            reqs_done= [m.num_requests_done for m in self.msp_list]
             row_data = OrderedDict({
                 # "num_steps": GlobalState.get_clock() - 1,
-                "max_msp_reqs": np.max([m.num_requests_done for m in self.msp_list]),
-                "min_msp_reqs": np.min([m.num_requests_done for m in self.msp_list]),
-                "min_success_requests": np.min([m.num_requests_fullfilled for m in self.msp_list]),
-                "total_satisfied_requests_percentage": sum(m.num_requests_fullfilled for m in self.msp_list) / sum(
-                    m.num_requests for m in self.msp_list),
-                "num_requests_fulfilled": sum(m.num_requests_fullfilled for m in self.msp_list),
-                "last_num_msps_applied": self.last_num_msps_applied,
+                "max_msp_reqs": np.max(reqs_done),
+                "min_msp_reqs": np.min(reqs_done),
+                "tot_req_done": np.sum(reqs_done),
+                "num_requests_fulfilled": reqs_fullfilled,
+                "total_satisfied_requests_percentage": reqs_fullfilled / np.sum(reqs_done)* 100,
+                # "last_num_msps_applied": self.last_num_msps_applied,
+                "episode_val": reqs_fullfilled , # need to multiply by immersion. 
                 "total_reward": sum(self.total_timestep_reward),
                 # "moving_avg_reward": sum(self.moving_average_timestep_reward),
                 # "average_reward_per_steps": sum(self.total_timestep_reward) / GlobalState.get_clock(),
@@ -330,17 +332,17 @@ class GameCoopEnv(gym.Env):
                 # "total_imm": sum(self.episode_overall_avg_imrvnss_lst),
                 "avg_head_imrvnss_alive": np.mean(self.episode_avg_imrvnss_alive_msp_lst),
                 "avg_head_imrvnss_overall": np.mean(self.episode_overall_avg_imrvnss_lst),
-                "need_help": sum(self.episode_need_help_lst),
+                # "need_help": sum(self.episode_need_help_lst),
                 "worked_msps": sum(self.episode_worked_msps_lst),
                 "avg_worked_msps": np.mean(self.episode_worked_msps_lst),
                 # "help_budget_invested": 0,
                 # "total_budget": total_budget,
-                "remaining_budget": remaining_budget,
-                "consumed_budget": total_budget - remaining_budget,
+                # "remaining_budget": remaining_budget,
+                # "consumed_budget": total_budget - remaining_budget,
                 "total_helped_times": sum(m.total_helped_times for m in self.msp_list),  # can put it per msp if needed.
                 "total_help_received": sum(m.total_help_received for m in self.msp_list),
                 # can put it per msp if needed.
-                "runname": self.run_name,
+                # "runname": self.run_name,
             })
             # row_data = concatenate_dicts(row_data, msps_budgets)
             # row_data = concatenate_dicts(row_data, qq)
@@ -582,16 +584,16 @@ class GameCoopEnv(gym.Env):
         #     f"@{self.__class__.__name__}, Info: Created 2 heads, first has {head1.num_users} users and second has {head2.num_users} users")
 
     def create_msps(self, msps_requests: int = 50):
-        tot_bud = 700 / 2
-        t = tot_bud / 2
+        # tot_bud = 700 / 2
+        # t = tot_bud / 2
         # total_budget_per_msp = 37/3
         # total_budget_per_msp = 29/3 # maximum config cost  of 63,63,63 
 
         # setting used in limited budget case.
         # total_budget_per_msp = (30/3) *0.80 #0.45
 
-        msp1 = MSP(heads=[self.head_list[0]], budget=t, num_requests=msps_requests)
-        msp2 = MSP(heads=[self.head_list[1]], budget=tot_bud, num_requests=msps_requests)
+        msp1 = MSP(heads=[self.head_list[0]], budget=100, num_requests=msps_requests)
+        msp2 = MSP(heads=[self.head_list[1]], budget=50, num_requests=msps_requests)
 
         # msp3 = MSP(heads=[self.head_list[2]], budget=total_budget_per_msp, num_requests=msps_requests,
         #            heads_target_imm=0.85)
@@ -798,7 +800,7 @@ class GameCoopEnv(gym.Env):
         for msp, help_val in zip(self.msp_list, help_action):
             # need to decode the help action for this specfic msp 
             decoded_help_ = msp.get_possible_help_actions()[0].get(help_val)
-            print("decoded helps:",decoded_help_)
+            # print("decoded helps:",decoded_help_)
             # print(f"@{self.__class__.__name__}, Info: MSP {msp.id} decoded_help_: {decoded_help_}")
 
             if msp in msps_needing_help:
@@ -837,8 +839,8 @@ class GameCoopEnv(gym.Env):
                         # nei_tot_cost_100 = neighbor.get_cost_per_action().get(1)
                         help_cost = msp.get_budget() * help_percentage
                         # increase the budget of neighbor 
-                        # cond3 = True  # checks if the neighbor needs help or not.
-                        cond3 = neighbor.is_msp_finished_budget()[0]  # checks if the neighbor needs help or not.
+                        cond3 = True  # checks if the neighbor needs help or not.
+                        # cond3 = neighbor.is_msp_finished_budget()[0]  # checks if the neighbor needs help or not.
                         # cond3 = False # checks if the neighbor needs help or not.
                         # print(f"\033[94m@{self.__class__.__name__}, Info: cond3: {cond3}\033[0m")
                         if cond3:
@@ -847,7 +849,7 @@ class GameCoopEnv(gym.Env):
                             msp.decrease_budget(help_cost)
                             output_dict[msp.id]["Helped_list"].append(neighbor.id)
                             output_dict[msp.id]["Helped"] = True
-                            msp.total_helped_times += 1
+                            msp.total_helped_times += 1 
                             neighbor.total_help_received += help_cost
                             # print in red color.
                             print(f"\033[91m@{self.__class__.__name__}, Info: MSP:{msp.id} helped MSP{neighbor.id} with {help_cost}, about {help_percentage*100}% of its remaining budget and {round(help_cost/msp.initial_budget*100,4)}% of its initial budget \033[0m")
@@ -935,31 +937,31 @@ class GameCoopEnv(gym.Env):
         failures = 0
         
         for imm in imms:
-            if imm >= MIN_IMMERSIVENESS_TO_PASS:
+            if imm >= MIN_IMMERSIVENESS_TO_PASS: # greater than the minimum immersiveness.
                 # Check if immersion is efficiently close to target
                 if imm <= MIN_IMMERSIVENESS_TO_PASS * 1.1:  # Within 10% of minimum
                     efficient_successes += 1.5
                 else:
                     # Success but with diminishing returns for excessive immersion
-                    efficiency_factor = 1.0 - min(0.3, (imm - MIN_IMMERSIVENESS_TO_PASS) / MIN_IMMERSIVENESS_TO_PASS)
+                    efficiency_factor = 0.5 - min(0.3, (imm - MIN_IMMERSIVENESS_TO_PASS) / MIN_IMMERSIVENESS_TO_PASS)
                     efficient_successes += efficiency_factor
                     excessive_immersion += 1
-            else:
+            else:# less than the minimum immersiveness.
                 failures += 1
         
         # Reward successful requests but with efficiency incentive
         reward += (efficient_successes * 0.15)
-        help_actions = sum(1 for msp in self.msp_list if len(output_dict[msp.id]["Helped_list"]) > 0)
-        reward += help_actions * 0.2
+        # help_actions = sum(1 for msp in self.msp_list if len(output_dict[msp.id]["Helped_list"]) > 0)
+        # reward += help_actions * 0.2
         
         # Small penalty for excessive immersion to discourage wasting resources
         reward -= (excessive_immersion * 0.01)
         
         # Larger penalty for failing to meet minimum immersion
-        reward -= (failures * 0.1)
+        reward -= (failures * 0.2)
 
         # Normalize final reward to [-1, 1] range
-        reward = np.clip(reward, -1.0, 1.0)
+        # reward = np.clip(reward, -1.0, 1.0)
 
         return reward, self.calculate_moving_average(reward)
 

@@ -26,7 +26,7 @@ class Test:
         # check_env(env)
 
         # print("-----------------------------------------------")
-        for episode in range(1):
+        for episode in range(15):
             env.reset()
             print("---------------------------------------------------------\n\n")
             done = False
