@@ -1085,3 +1085,48 @@
 2025-02-18 14:05:18
 {'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_15_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 750000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_15_gamma_0.97_testing', 'MSPS_REQUESTS': 15}
 **************************************************
+2025-02-26 14:05:55
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_3_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_3_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-26 14:07:46
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-26 14:30:04
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 15000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-26 14:30:53
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 15000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-26 14:34:13
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 15000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-26 14:37:16
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 15000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-26 14:48:25
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 6000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-26 14:49:04
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 6000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-27 13:18:21
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 6000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-27 13:57:57
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 6000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-27 14:04:19
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 6000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-27 14:32:05
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 6000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-27 19:41:54
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 1500000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-27 22:52:27
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 3000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************
+2025-02-27 22:53:02
+{'BUFFER_SIZE': 2000000, 'RUNNAME': 'msps_2_requests_30_gamma_0.97_testing', 'GAMMA': 0.97, 'MAX_STEPS': 3000000, 'Alg': 'ppo', 'load': False, 'msg': 'trying msps_2_requests_30_gamma_0.97_testing', 'MSPS_REQUESTS': 30}
+**************************************************

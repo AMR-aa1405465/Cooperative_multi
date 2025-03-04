@@ -10,6 +10,9 @@ class DynamicMovingAverage:
         self.vals.append(value)
         return self.get_average()
 
+    def get_size(self):
+        return self.count
+
     def get_average(self):
         if self.count == 0:
             return 0.0

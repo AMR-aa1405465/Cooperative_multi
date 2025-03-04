@@ -76,6 +76,7 @@ class MSP:
         self.b = 0
         self.b_avg = 0
         self.achvd_immers = 0
+        self.lst_final_imm = []
         #
         self.initial_budget = budget
         self.total_help_received = 0  # the total help received by this msp for a whole episode.
@@ -85,6 +86,7 @@ class MSP:
         # added new : 
         self.help_percentages, self.num_help_perc = None, None # to be set manually. 
         self.heads_history_struct = self.generate_heads_history()
+        self.step_counter = 0 
         self.check_msp()
         # used for the env state, if number of clinets increases.
         self.initial_num_clients = self.get_total_num_clients()
@@ -245,7 +247,12 @@ class MSP:
             return self.combinations_dict, self.combinations_num
 
         combinations = []
-        help_values = np.arange(0, 0.8, 0.2)
+        # help_values = np.arange(0, 0.8, 0.2)
+        # help_values = np.linspace(0, 0.02, 7) # was used as a percentage of the initial budget 
+
+        #todo: Later on, this can be based on the msp current budget
+        help_values = np.linspace(0, 0.15, 7) # was used as a percentage of the initial budget 
+
         
         # Generate all possible combinations of help values for each neighbor
         num_neighbors = len(self.neighbors)
@@ -303,6 +310,7 @@ class MSP:
     def episode_reset(self):
         self.budget = self.initial_budget
         self.accumulate_help.clear()
+        self.lst_final_imm.clear()
         self.total_help_received = 0
         self.total_helped_times = 0
         self.num_requests_fullfilled = 0
@@ -311,6 +319,7 @@ class MSP:
         self.b = 0
         self.b_avg = 0
         self.achvd_immers = 0
+        self.step_counter = 0
         self.heads_history_struct = self.generate_heads_history()
 
     def check_apply_msp_action(self, action_tuple_list):
@@ -325,7 +334,7 @@ class MSP:
         """
 
         heads_actions = [all_heads_actions for all_heads_actions in action_tuple_list]
-        print("heads_actions=", heads_actions)
+        # print("heads_actions=", heads_actions)
         # TODO: implement the external help here (sure in-sha-allah).
         mock_res = self.perform_mock_heads_action(heads_actions, debug=True)
         self.get_cost_per_action()
@@ -389,7 +398,8 @@ class MSP:
 
             target_immersiveness = self.heads[i].get_target_immersiveness()
             penalty_mode = "sigmoid"
-            if immerivenss >= IMMERSIVNESS_FREEDOM * target_immersiveness:
+            # if immerivenss >= IMMERSIVNESS_FREEDOM * target_immersiveness:
+            if immerivenss >= target_immersiveness:
                 num_satisfied_requests += 1
                 penalty = calculate_penality(target_immersiveness, immerivenss, mode=penalty_mode)
             else:
@@ -463,7 +473,7 @@ class MSP:
             0.75 : mock_75["total_cost"],
             1 : mock_hundered["total_cost"] # the maximum cost
         }
-        print(f"@Info:{self.__class__.__name__}, result={result}")
+        # print(f"@Info:{self.__class__.__name__}, result={result}")
         return result
 
 

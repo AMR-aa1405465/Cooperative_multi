@@ -14,15 +14,15 @@ def beep(frequency=1000, duration=0.3, sample_rate=44100):
 
 # runname_extra_name = "check_rew4_oldintermediate_msps_5_changedroomcost"
 # runname_extra_name = "non_cooper_msps_5"
-num_msps = 3
+num_msps = 2
 runname_extra_name = "testing"
 # for num_requests in tqdm(range(10, 100, 20)):
-for num_requests in tqdm(range(15, 20, 20)):
+for num_requests in tqdm(range(30, 40, 20)):
 # for num_requests in tqdm(range(1000, 1020, 20)):
     # for num_requests in tqdm(range(10,100,20)):
     runname = f"msps_{num_msps}_requests_{num_requests}_gamma_0.97_{runname_extra_name}"
-    num_episodes_required = 50_000
-    # num_episodes_required = 100_000
+    # num_episodes_required = 500_000
+    num_episodes_required = 100_000
     num_training_steps = num_episodes_required * num_requests
     gamma = 0.97
     print("running runname: ", runname, "with num_training_steps: ", num_training_steps)

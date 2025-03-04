@@ -19,7 +19,8 @@ from gymnasium.core import ActType
 from gymnasium.spaces import Box
 
 # from HierancyRewarding import HierarchicalRewardCalculator
-from helpers.Constants import PERC_TO_KEEP, MOVING_AVERAGE_WINDOW, HeadType, ACTION_DOABLE_AND_APPLIED
+from helpers.Constants import MIN_IMMERSIVENESS_TO_PASS, PERC_TO_KEEP, MOVING_AVERAGE_WINDOW, HeadType, \
+    ACTION_DOABLE_AND_APPLIED
 from helpers.GlobalState import GlobalState
 from model.Head import Head
 from model.MSP import MSP
@@ -76,15 +77,17 @@ def value_to_discrete(value):
 
     return discrete_value
 
-def help_value_to_discrete(value,max_value):
+
+def help_value_to_discrete(value, max_value):
     """
     This function takes a value from -1 to 1 and outputs a discrete number from 0 to 4 inclusive.
     Each discrete value represents an equal-width bin in the continuous space.
     """
     assert -1 <= value <= 1, "Value must be between -1 and 1 inclusive."
     normalized_value = (value + 1) / 2
-    discrete_value = min(int(normalized_value * max_value), max_value-1)
+    discrete_value = min(int(normalized_value * max_value), max_value - 1)
     return discrete_value
+
 
 class GameCoopEnv(gym.Env):
     """
@@ -184,52 +187,56 @@ class GameCoopEnv(gym.Env):
         # Open to change the action space to discrete 
         # self.action_space = spaces.MultiDiscrete(self.action_space_config)
 
-       # Changed to a continuous action space. without the help action space.
+        # Changed to a continuous action space. without the help action space.
         # self.action_space = Box(
         #     low=np.array([-1.0 for _ in range(self.num_msps)]),
         #     high=np.array([1.0 for _ in range(self.num_msps)]),
         #     dtype=np.float64)
-        
+
         # Changed to a continuous action space. with the help action space.
         self.action_space = Box(
             low=np.array([-1.0 for _ in range(self.num_msps + self.num_msps)]),
             high=np.array([1.0 for _ in range(self.num_msps + self.num_msps)]),
             dtype=np.float64)
-        
+
         print(f"@{self.__class__.__name__}, Info: Action space created with shape: {self.action_space.shape}")
-    def parse_help(self,partial_action):
+
+    def parse_help(self, partial_action):
         """
         This function is used to parse the help from the action.
         """
         # the input is a list of values of -1 to 1 indicating the help configuration. 
-        output = [help_value_to_discrete(val,max_value=m.get_possible_help_actions()[1]) for val,m in zip(partial_action,self.msp_list)]
+        output = [help_value_to_discrete(val, max_value=m.get_possible_help_actions()[1]) for val, m in
+                  zip(partial_action, self.msp_list)]
         return output
-    
+
     def step(self, action: ActType):
         """
         This function is used to take a step in the environment.
         """
         # in this setting, the action includes the choice of msp(0) ... msp(N)
-        print(f"@{self.__class__.__name__}, Info: Action: {action}")
+        # print(f"@{self.__class__.__name__}, Info: Action: {action}")
         # 1. decode the action per each msp & send it to the msp.
         # Open to change the action space if continous 
-        action_copy = action[:] # represents the full action. 
+        action_copy = action[:]  # represents the full action.
         # print(f"@{self.__class__.__name__}, Info: full action: {action_copy}")
-        action_msps = [value_to_discrete(act) for act in action_copy[:self.num_msps]] 
+        action_msps = [value_to_discrete(act) for act in action_copy[:self.num_msps]]
         # print(f"@{self.__class__.__name__}, Info: action of MSPs to heads: {action_msps}")
         help_action = self.parse_help(action_copy[self.num_msps:])
         # print(f"@{self.__class__.__name__}, Info: help_action_parsed: {help_action}")
         output_dict = self.apply_help(help_action)
         # print in green color
-        print(f"\033[92m@{self.__class__.__name__}, Info: output_dict: {output_dict}\033[0m")
-        
+        # print(f"\033[92m@{self.__class__.__name__}, Info: output_dict: {output_dict}\033[0m")
+
         decoded_actions = self.parse_action(action_msps, operation_mode=0)
         # print(f"@{self.__class__.__name__}, Info: Decoded actions: {decoded_actions}")
         res = self.apply_decoded_action(decoded_actions, operation_mode=0)
+        # print in pink color
+        # print(f"\033[95m@{self.__class__.__name__}, Info: res: {json.dumps(res, indent=4)}\033[0m")
 
         # recording some of the stats.
         total_cost = res["total_cost"]  # total cost of doing that action.
-        print(f"@{self.__class__.__name__}, Info: Total cost: {total_cost}")
+        #print(f"@{self.__class__.__name__}, Info: Total cost: {total_cost}")
         total_imm = res['total_imm']  # Total immersion of that action.
         num_msps_applied = res['num_msps_applied']  # Number of msps applied.
         # sat_pen = res['sat_pen'] # satisfaction & penality.
@@ -241,7 +248,7 @@ class GameCoopEnv(gym.Env):
         # reward, moving_avg = self.calculate_reward_new_intermediate2(sat_pen)  # worked good.
 
         # Calculating the rewards.
-        reward, moving_avg = self.calculate_reward_new_intermediate4feb(res)
+        reward, moving_avg = self.calc_inter_multi(res,output_dict)
         # reward, moving_avg = 0,0
 
         # the following 4 lines were used with the intermediate reward 2
@@ -255,6 +262,12 @@ class GameCoopEnv(gym.Env):
 
         # check next state.
         self.state = self.get_state()
+
+        # update the number of steps for each msp.
+        for m in self.msp_list:
+            if not m.is_msp_finished_budget()[0]:
+                m.step_counter += 1
+
         if done:
             msps_budgets = {f"msp_{m.id}_budget_left": m.get_budget() for m in self.msp_list}
             q = []
@@ -269,8 +282,13 @@ class GameCoopEnv(gym.Env):
                     # msp_s += (hhead.moving_average_immersiveness.get_average()/hhead.get_target_immersiveness())
                     b_noclip = ((
                                         sum(hhead.moving_average_immersion.get_vals_list()) / msp.num_requests) / hhead.get_target_immersiveness())
-                    imm_noclip = (sum(hhead.moving_average_immersion.get_vals_list()) / msp.num_requests)
-                    imm += np.clip(imm_noclip, 0, 1)
+
+                    # imm_noclip = (sum(hhead.moving_average_immersion.get_vals_list()) / msp.num_requests)
+                    # imm_noclip = (sum(hhead.moving_average_immersion.get_vals_list()) / msp.num_requests_done)
+                    imm_noclip = (hhead.moving_average_immersion.get_sum() / msp.num_requests_done)
+                    imm_clipped = np.clip(imm_noclip, 0, 1)
+                    imm += imm_clipped
+                    msp.lst_final_imm.append(imm_clipped)
                     b += np.clip(round(b_noclip, 2), 0, 1)  # this avoids over-accomplish (keeps between 0 and 1 )
                     avg_imm_heads_of_msp.extend(hhead.moving_average_immersion.get_vals_list())
                 q.append(np.clip(msp_s / len(msp.heads), 0, 1))
@@ -281,19 +299,24 @@ class GameCoopEnv(gym.Env):
                 msp.achvd_immers = imm / len(msp.heads)
                 self.total_number_of_episodes_trained += 1
                 # if self.total_number_of_episodes_trained%500 == 0:
-                print("msp.achvd_immers: ", msp.achvd_immers, " msp.b_avg(85%): ", msp.b_avg)
+                # print("msp.id", msp.id, "msp.achvd_immers: ", msp.achvd_immers, " msp.b_avg(85%): ", msp.b_avg,
+                #       " Steps:", msp.num_requests_done)
+                # print("msp.achvd_immers: ", msp.achvd_immers, " msp.b_avg(85%): ", msp.b_avg)
             qq = {f"msp_q_{_id}": val for _id, val in enumerate(q)}
             self.msps_quality_score = sum(val for val in qq.values())
 
             # Terminal reward.
-            reward = self.calc_terminal_rew_4feb(termination_reason)
+            reward = self.calc_term_multi(termination_reason)
             self.total_timestep_reward.append(reward)
 
             # Write the following to the file.
             total_budget = sum(m.initial_budget for m in self.msp_list)
             remaining_budget = sum(m.get_budget() for m in self.msp_list)
             row_data = OrderedDict({
-                "num_steps": GlobalState.get_clock() - 1,
+                # "num_steps": GlobalState.get_clock() - 1,
+                "max_msp_reqs": np.max([m.num_requests_done for m in self.msp_list]),
+                "min_msp_reqs": np.min([m.num_requests_done for m in self.msp_list]),
+                "min_success_requests": np.min([m.num_requests_fullfilled for m in self.msp_list]),
                 "total_satisfied_requests_percentage": sum(m.num_requests_fullfilled for m in self.msp_list) / sum(
                     m.num_requests for m in self.msp_list),
                 "num_requests_fulfilled": sum(m.num_requests_fullfilled for m in self.msp_list),
@@ -304,22 +327,23 @@ class GameCoopEnv(gym.Env):
                 "total_cost": sum(self.episode_total_cost_lst),
                 "avg_cost_per_client": sum(self.episode_avg_cost_per_client),
                 "avg_cost_alive": sum(self.episode_avg_cost_alive_lst),
-                "total_imm": sum(self.episode_overall_avg_imrvnss_lst),
+                # "total_imm": sum(self.episode_overall_avg_imrvnss_lst),
                 "avg_head_imrvnss_alive": np.mean(self.episode_avg_imrvnss_alive_msp_lst),
                 "avg_head_imrvnss_overall": np.mean(self.episode_overall_avg_imrvnss_lst),
                 "need_help": sum(self.episode_need_help_lst),
                 "worked_msps": sum(self.episode_worked_msps_lst),
                 "avg_worked_msps": np.mean(self.episode_worked_msps_lst),
-                "help_budget_invested": 0,
-                "total_budget": total_budget,
+                # "help_budget_invested": 0,
+                # "total_budget": total_budget,
                 "remaining_budget": remaining_budget,
                 "consumed_budget": total_budget - remaining_budget,
-                "total_helped_times": sum(m.total_helped_times for m in self.msp_list), # can put it per msp if needed.
-                "total_help_received": sum(m.total_help_received for m in self.msp_list), # can put it per msp if needed.
+                "total_helped_times": sum(m.total_helped_times for m in self.msp_list),  # can put it per msp if needed.
+                "total_help_received": sum(m.total_help_received for m in self.msp_list),
+                # can put it per msp if needed.
                 "runname": self.run_name,
             })
-            row_data = concatenate_dicts(row_data, msps_budgets)
-            row_data = concatenate_dicts(row_data, qq)
+            # row_data = concatenate_dicts(row_data, msps_budgets)
+            # row_data = concatenate_dicts(row_data, qq)
             if self.extra_info != "":
                 row_data["extra_info"] = self.extra_info
             self.write_to_file(row_data, f"summary.csv")
@@ -541,33 +565,34 @@ class GameCoopEnv(gym.Env):
         # head4 = Head(num_users=5, room=self.vrooms_list[3], htype=HeadType.LOCAL, target_immersiveness=0.85)
         # head5 = Head(num_users=5, room=self.vrooms_list[4], htype=HeadType.LOCAL, target_immersiveness=0.85) 
 
-        head1 = Head(num_users=5, room=self.vrooms_list[0], htype=HeadType.LOCAL, target_immersiveness=0.85)
-        head2 = Head(num_users=5, room=self.vrooms_list[1], htype=HeadType.LOCAL, target_immersiveness=0.85)
-        head3 = Head(num_users=5, room=self.vrooms_list[2], htype=HeadType.LOCAL, target_immersiveness=0.85)
-        head4 = Head(num_users=5, room=self.vrooms_list[3], htype=HeadType.LOCAL, target_immersiveness=0.85)
-        head5 = Head(num_users=5, room=self.vrooms_list[4], htype=HeadType.LOCAL, target_immersiveness=0.85)
+        head1 = Head(num_users=5, room=self.vrooms_list[0], htype=HeadType.LOCAL, target_immersiveness=MIN_IMMERSIVENESS_TO_PASS)
+        head2 = Head(num_users=5, room=self.vrooms_list[1], htype=HeadType.LOCAL, target_immersiveness=MIN_IMMERSIVENESS_TO_PASS)
+        # head3 = Head(num_users=5, room=self.vrooms_list[2], htype=HeadType.LOCAL, target_immersiveness=0.85)
+        # head4 = Head(num_users=5, room=self.vrooms_list[3], htype=HeadType.LOCAL, target_immersiveness=0.85)
+        # head5 = Head(num_users=5, room=self.vrooms_list[4], htype=HeadType.LOCAL, target_immersiveness=0.85)
 
         self.head_list.append(head1)
         self.head_list.append(head2)
-        self.head_list.append(head3)
-        self.head_list.append(head4)
-        self.head_list.append(head5)
+        # self.head_list.append(head3)
+        # self.head_list.append(head4)
+        # self.head_list.append(head5)
         for h in self.head_list:
             print(f"@{self.__class__.__name__}, Info: Created head {h.id}, has {h.num_users} users")
         # print(
         #     f"@{self.__class__.__name__}, Info: Created 2 heads, first has {head1.num_users} users and second has {head2.num_users} users")
 
     def create_msps(self, msps_requests: int = 50):
-        tot_bud = 700 / 3
+        tot_bud = 700 / 2
+        t = tot_bud / 2
         # total_budget_per_msp = 37/3
         # total_budget_per_msp = 29/3 # maximum config cost  of 63,63,63 
 
         # setting used in limited budget case.
         # total_budget_per_msp = (30/3) *0.80 #0.45
 
-        msp1 = MSP(heads=[self.head_list[0]], budget=5, num_requests=msps_requests)
+        msp1 = MSP(heads=[self.head_list[0]], budget=t, num_requests=msps_requests)
         msp2 = MSP(heads=[self.head_list[1]], budget=tot_bud, num_requests=msps_requests)
-        
+
         # msp3 = MSP(heads=[self.head_list[2]], budget=total_budget_per_msp, num_requests=msps_requests,
         #            heads_target_imm=0.85)
         # msp4 = MSP(heads=[self.head_list[3]], budget=total_budget_per_msp, num_requests=msps_requests, heads_target_imm=0.85)
@@ -589,10 +614,14 @@ class GameCoopEnv(gym.Env):
         """
         This function is used to check if the environment is finished.
         """
-
+        # cond1 = False 
+        # cond2 = False 
+        # cond3 = False 
         # 1. All msps budget is below threshold.
+
         count = sum(1 for m in self.msp_list if m.is_msp_finished_budget()[0])
         if count == len(self.msp_list):
+            # cond1 = True 
             return True, "All msps budget is below threshold", "BUDG_FINISHED"
 
         # 2. Number of requests passed or reached the maximum number of requests.
@@ -604,13 +633,15 @@ class GameCoopEnv(gym.Env):
         # if count > 0 and total_fulfilled_requests < total_requests :
         #     return True, "One msps budget is below threshold", "BUDG_FINISHED2"
 
+        # the following 2 conditions has been removed.
         # print(f"@{self.__class__.__name__}, Info: Total requests: {total_requests}, Total fulfilled requests: {total_fulfilled_requests}")
-        if total_fulfilled_requests >= total_requests:
-            return True, "All requests are fulfilled", "GOAL_REACHED"
+        # if total_fulfilled_requests >= total_requests:
+        #     return True, "All requests are fulfilled", "GOAL_REACHED"
 
         # 3. Time is up.
-        if GlobalState.get_clock() >= max(msp.num_requests for msp in self.msp_list):
-            return True, "Time is up", "TIME_UP"
+        # if GlobalState.get_clock() >= max(msp.num_requests for msp in self.msp_list):
+        # cond2 = True
+        #     return True, "Time is up", "TIME_UP"
 
         return False, "Not finished", "NOT_FINISHED"
 
@@ -629,7 +660,8 @@ class GameCoopEnv(gym.Env):
 
         budgets_left = [normalize_value(m.get_budget_percentage(), 0, 1) for m in self.msp_list]
         s.extend(budgets_left)  # budget left for each msp.
-        
+        s.extend([normalize_value(m.is_msp_finished_budget()[0], 0, 1) for m in self.msp_list])
+
         # the total users is normalized betwen 0 and the maximum number of users that can be handled by virtual rooms
         # hosted by the heads which the msp serves.
         system_clock = GlobalState.get_clock()
@@ -637,17 +669,19 @@ class GameCoopEnv(gym.Env):
         # todo: open in the second phase.
         # help_requests = [self.normalize_value(m.need_help(), 0, 1) for m in self.msp_list]
         # time_roll = self.normalize_value(system_clock, 0, self.max_clock)
-        time_roll = normalize_value(system_clock, 0, max(msp.num_requests for msp in self.msp_list))
-        s.append(time_roll)  #clock
-        
+
+        # time_roll = normalize_value(system_clock, 0, max(msp.num_requests for msp in self.msp_list))
+        # s.append(time_roll)  #clock
+
         total_users = [normalize_value(m.get_total_num_clients(), 0, sum(head.room.max_users for head in m.heads))
                        for m in self.msp_list]
-        msps_finished = [normalize_value(m.is_msp_finished_budget()[0], 0, 1) for m in self.msp_list]
-        msps_requests_fulfilled = [normalize_value(m.num_requests_fullfilled / m.num_requests, 0, 1) for m in
-                                   self.msp_list]
-        #s.extend(total_users) # total number of users each msp serves. (used for scaling)
-        #s.extend(msps_finished)  # if msp budget finished or not.
-       
+        # msps_finished = [normalize_value(m.is_msp_finished_budget()[0], 0, 1) for m in self.msp_list]
+        # msps_requests_fulfilled = [normalize_value(m.num_requests_fullfilled / m.num_requests, 0, 1) for m in
+        #                            self.msp_list]
+
+        # s.extend(total_users) # total number of users each msp serves. (used for scaling)
+
+
         # s.extend(msps_requests_fulfilled)  # the percentage of requests that are fulfilled.
         return np.array(s)
 
@@ -755,52 +789,68 @@ class GameCoopEnv(gym.Env):
         This function is used to apply the help to the neighbors of the msps.
         the help action is a list of numbers, each number represents the configuration index. 
         """
-        output_dict = {msp.id: {"Helped": False,"Helped_list":[]} for msp in self.msp_list}
+        output_dict = {msp.id: {"Helped": False, "Helped_list": []} for msp in self.msp_list}
+        
+        # First pass: identify MSPs that need help
+        msps_needing_help = [msp for msp in self.msp_list if msp.is_msp_finished_budget()[0]]
+
         # loops over all msps. 
         for msp, help_val in zip(self.msp_list, help_action):
             # need to decode the help action for this specfic msp 
             decoded_help_ = msp.get_possible_help_actions()[0].get(help_val)
+            print("decoded helps:",decoded_help_)
             # print(f"@{self.__class__.__name__}, Info: MSP {msp.id} decoded_help_: {decoded_help_}")
+
+            if msp in msps_needing_help:
+                # skip msps that need help themselves they cannot help others.
+                continue
+            
             if all(x == 0 for x in decoded_help_):
+                # the msp did not help any of the neighoprs
+                # print("no help from msp.id",msp.id)
                 continue
             else:
                 total_cost_of_help = 0
                 # loops over all neighbors of the msp.
                 for neighbor, help_percentage in zip(msp.neighbors, decoded_help_):
-                    nei_tot_cost_100 = neighbor.get_cost_per_action().get(1)
-                    # nei_tot_cost_75 = neighbor.get_cost_per_action().get(0.75)
-                    total_cost_of_help += nei_tot_cost_100 * help_percentage
+                    # nei_tot_cost_100 = neighbor.get_cost_per_action().get(1) # represents the cost of high immerersion action 
+                    # total_cost_of_help += nei_tot_cost_100 * help_percentage
+                    budget_percentage = msp.get_budget() * help_percentage
+                    total_cost_of_help += budget_percentage
                 # after collecting the cost of the help, we need to assign this help to the neighbor (only if budget allows.)
 
                 # check if the budget allows the help.
                 msp_budget = msp.get_budget()
                 msp_initial_budget = msp.initial_budget
                 # checks if we have enough budget to help.
-                
-                cond1 = msp_budget > total_cost_of_help 
+
+                cond1 = msp_budget > total_cost_of_help
                 # checks if we have enough budget to keep after applying the help.
                 # cond2 = (msp_budget - total_cost_of_help) > (msp_initial_budget * PERC_TO_KEEP) 
-                cond2 = True 
-                if cond1 and cond2: 
-                    print(f"\033[94m@{self.__class__.__name__}, Info: cond1: {cond1}, cond2: {cond2}\033[0m")
+                cond2 = True
+                if cond1 and cond2:
+                    # print(f"\033[94m@{self.__class__.__name__}, Info: cond1: {cond1}, cond2: {cond2}\033[0m")
                     # apply the help.
                     # loops over all neighbors of the msp.
                     for neighbor, help_percentage in zip(msp.neighbors, decoded_help_):
-                        nei_tot_cost_100 = neighbor.get_cost_per_action().get(1)
+                        # nei_tot_cost_100 = neighbor.get_cost_per_action().get(1)
+                        # nei_tot_cost_100 = neighbor.get_cost_per_action().get(1)
+                        help_cost = msp.get_budget() * help_percentage
                         # increase the budget of neighbor 
-                        cond3 = neighbor.is_msp_finished_budget()[0] # checks if the neighbor needs help or not.
+                        # cond3 = True  # checks if the neighbor needs help or not.
+                        cond3 = neighbor.is_msp_finished_budget()[0]  # checks if the neighbor needs help or not.
                         # cond3 = False # checks if the neighbor needs help or not.
-                        print(f"\033[94m@{self.__class__.__name__}, Info: cond3: {cond3}\033[0m")
+                        # print(f"\033[94m@{self.__class__.__name__}, Info: cond3: {cond3}\033[0m")
                         if cond3:
-                            amount = nei_tot_cost_100 * help_percentage
-                            neighbor.increase_budget(amount)
-                            msp.decrease_budget(amount)
+                            # amount = help_cost
+                            neighbor.increase_budget(help_cost)
+                            msp.decrease_budget(help_cost)
                             output_dict[msp.id]["Helped_list"].append(neighbor.id)
                             output_dict[msp.id]["Helped"] = True
                             msp.total_helped_times += 1
-                            neighbor.total_help_received += amount 
+                            neighbor.total_help_received += help_cost
                             # print in red color.
-                            print(f"\033[91m@{self.__class__.__name__}, Info: {msp.id} helped {neighbor.id} with {amount} \033[0m")
+                            print(f"\033[91m@{self.__class__.__name__}, Info: MSP:{msp.id} helped MSP{neighbor.id} with {help_cost}, about {help_percentage*100}% of its remaining budget and {round(help_cost/msp.initial_budget*100,4)}% of its initial budget \033[0m")
 
         return output_dict
 
@@ -811,6 +861,7 @@ class GameCoopEnv(gym.Env):
         total_satisfied_this_step = 0
         total_heads = 0
         satisfaction_progress = 0
+        
 
         for key, vals in satisfiaction_penalities_dict.items():
             if vals["applied"]:
@@ -830,79 +881,6 @@ class GameCoopEnv(gym.Env):
         # Reward for this timestep
         reward = (total_satisfied_this_step / total_heads if total_heads > 0 else -1)  # + 0.5 * avg_satisfaction
         reward = np.clip(reward, -1, 1)
-
-        return reward, self.calculate_moving_average(reward)
-
-    def calculate_reward_new_intermediate2(self, satisfiaction_penalities_dict):
-        """
-        Reward based on request satisfaction progress
-        """
-        total_satisfied_this_step = 0
-        total_heads = 0
-        satisfaction_progress = 0
-        sum_penalities = 0
-
-        for key, vals in satisfiaction_penalities_dict.items():
-            if vals["applied"]:
-                # print("msp:", vals["msp_id"], " has a total penality of ", vals["penalities"], "and costed ", vals['penalty_satisfaction_list'][0]['cost'])
-                total_heads += vals["number_of_heads"]
-                total_satisfied_this_step += vals["num_satisfied_requests"]
-                sum_penalities += vals["penalities"]
-
-        reward = -1 * abs(sum_penalities)  # just in case anything is negative =)
-
-        reward = np.clip(reward, -1 * self.num_msps, 1)
-
-        return reward, self.calculate_moving_average(reward)
-
-    def calculate_reward_new_intermediate4feb(self, param):
-        """
-        Reward based on request satisfaction progress
-        """
-        satisfiaction_penalities_dict = param["sat_pen"]
-        total_cost = param["total_cost"]
-        num_msps_applied = param["num_msps_applied"]
-
-        total_satisfied_this_step = 0
-        total_heads = 0
-        satisfaction_progress = 0
-        sum_penalities = 0
-        countr = 0
-        avg_imm_timestep_acc = 0
-
-        for key, vals in satisfiaction_penalities_dict.items():
-            if vals["applied"]:
-                avg_imm_timestep = 0
-                # print("msp:", vals["msp_id"], " has a total penality of ", vals["penalities"], "and costed ", vals['penalty_satisfaction_list'][0]['cost'])
-                total_heads += vals["number_of_heads"]
-                total_satisfied_this_step += vals["num_satisfied_requests"]
-                sum_penalities += vals["penalities"]
-                for h in vals["penalty_satisfaction_list"]:
-                    avg_imm_timestep += h["details"]["current_immersiveness"]
-                    countr += 1
-                avg_imm_timestep_acc += avg_imm_timestep
-
-        # reward based on the penalities
-        # reward = -1 * abs(sum_penalities / num_msps_applied)  # penality for making agent not-diver
-        reward = 0  # no penalities here since we are not carying about the target immersiveness.
-        if num_msps_applied > 0:
-            # reward +=(num_msps_applied*0.1)
-            reward = -1 * abs(countr - (avg_imm_timestep_acc))
-            #print("Counter=", countr,"avg_imm_timestep_acc=",avg_imm_timestep_acc,"reward = ",reward)
-            # reward += -1 * (total_cost / num_msps_applied)  # penality for encouraging agent to reduce cost
-        else:
-            reward += -5
-        reward += 0.1  # for moving forward
-
-        # reward = -1 * sum_penalities
-
-        # special case: if no requests are satisfied, then penalize maximum.
-        # if total_satisfied_this_step == 0:
-        #     reward = -1*self.num_msps # penalize maximum.
-
-        # reward = np.clip(reward, -0.5, 0.5)
-        # reward = np.clip(reward, -5, 5)
-        #reward = np.clip(reward, -1 * self.num_msps, 1)
 
         return reward, self.calculate_moving_average(reward)
 
@@ -928,163 +906,125 @@ class GameCoopEnv(gym.Env):
             writer = csv.writer(f)
             writer.writerow(row_data.values())
 
-    def calc_terminal_rew_4feb(self, termination_reason: str):
-        # used in limited budget case.
-        reward_components = {}
-        avg_acheived_imm = sum(
-            msp.achvd_immers for msp in self.msp_list) / self.num_msps  # this is summation of episode-based average.
-        #maximum_b_finals = self.num_msps
-        reward = 0
+    def calc_inter_multi(self, param, output_dict):
+        """
+        Intermediate reward function focused on maximizing requests above minimum immersion.
+        """
+        satisfiaction_penalities_dict = param["sat_pen"]
+        imms = []
+        total_heads = 0
 
-        initial_budgets = round(sum(msp.initial_budget for msp in self.msp_list), 2)
-        remaining_budgets = round(sum(msp.get_budget() for msp in self.msp_list), 2)
-        budget_efficiency = (remaining_budgets / initial_budgets)
+        # Collect immersion values for all heads
+        for _, vals in satisfiaction_penalities_dict.items():
+            if vals["applied"]:
+                total_heads += vals["number_of_heads"]
+                for h in vals["penalty_satisfaction_list"]:
+                    imms.append(h["details"]["current_immersiveness"])
+            else:
+                # Penalize inactive heads
+                imms.extend([0] * vals["number_of_heads"])
 
-        # reward = 0.7*(round(avg_acheived_imm,2) * 100) + 0.3*(budget_efficiency*20)
-        # reward = 0.8 * (avg_acheived_imm * 100) + 0.2 * (budget_efficiency * 100)
-        reward = (avg_acheived_imm * 100)  #+ 0.2 * (budget_efficiency * 100)
-        if GlobalState.get_clock() < max(msp.num_requests for msp in self.msp_list):
-            # stopped early
-            reward = -100
-        # if termination_reason == "BUDG_FINISHED":
-        #     print("Finished budget before ending")
-        #     reward = -100
-        # if avg_acheived_imm>=0.90:
-        #     diff = abs(avg_acheived_imm-0.90) *1000
-        #     reward+=diff
+        if not imms:
+            return -1.0, -1.0  # Strong penalty if no immersion values
 
-        # reward += (remaining_budgets / initial_budgets) * 20
-        # reward +=
-        # reward_components["budget_efficiency"] = remaining_budgets / initial_budgets * 20
-        # else:
-        # Partial progress reward
+        reward = 0.0
+        
+        # Calculate success with efficiency incentive
+        efficient_successes = 0
+        excessive_immersion = 0
+        failures = 0
+        
+        for imm in imms:
+            if imm >= MIN_IMMERSIVENESS_TO_PASS:
+                # Check if immersion is efficiently close to target
+                if imm <= MIN_IMMERSIVENESS_TO_PASS * 1.1:  # Within 10% of minimum
+                    efficient_successes += 1.5
+                else:
+                    # Success but with diminishing returns for excessive immersion
+                    efficiency_factor = 1.0 - min(0.3, (imm - MIN_IMMERSIVENESS_TO_PASS) / MIN_IMMERSIVENESS_TO_PASS)
+                    efficient_successes += efficiency_factor
+                    excessive_immersion += 1
+            else:
+                failures += 1
+        
+        # Reward successful requests but with efficiency incentive
+        reward += (efficient_successes * 0.15)
+        help_actions = sum(1 for msp in self.msp_list if len(output_dict[msp.id]["Helped_list"]) > 0)
+        reward += help_actions * 0.2
+        
+        # Small penalty for excessive immersion to discourage wasting resources
+        reward -= (excessive_immersion * 0.01)
+        
+        # Larger penalty for failing to meet minimum immersion
+        reward -= (failures * 0.1)
 
-        # just commented this out. yesterday
-        # req_fullfilled = sum(m.num_requests_fullfilled for m in self.msp_list) / sum(
-        #     m.num_requests for m in self.msp_list)
-        # reward += req_fullfilled * 40
-        # print("req_fullfilled", sum(m.num_requests_fullfilled for m in self.msp_list), ' from ', sum(
-        #     m.num_requests for m in self.msp_list))
-        #
-        # print("req_fullfilled", req_fullfilled * 40)
+        # Normalize final reward to [-1, 1] range
+        reward = np.clip(reward, -1.0, 1.0)
 
-        # added this part here.
+        return reward, self.calculate_moving_average(reward)
 
-        # steps_completion = (GlobalState.get_clock() / max(msp.num_requests for msp in self.msp_list))
-        # reward += (steps_completion * 40)  #to be put again.
+    def calc_term_multi(self, termination_reason: str):
+        """
+        Terminal reward function that focuses on maximizing applied requests while maintaining
+        minimum immersiveness standards.
+        """
 
-        # completion_ratio = total_b_finals / maximum_b_finals
-        # print("completion_ratio:", completion_ratio, "total_b_finals:", total_b_finals, "maximum_b_finals:",
-        #       maximum_b_finals)
-        # # print("steps_completion:", steps_completion)
-        # reward += (completion_ratio * 40)  # to be put again.
-        # print("Completion ratio reward:", (completion_ratio * 40))
-        # new_reward = (steps_completion * completion_ratio) * (1 + budget_efficiency * 0.2) * 100
-        # reward += new_reward
+        # reward = 0
+        # # Calculate the average number of requests done by all msps.
+        # # total_requests_done = sum(m.num_requests_done for m in self.msp_list)
+        # # minimum_requests_done = min(m.num_requests_done for m in self.msp_list)
+        # reqs_fullfilled = [m.num_requests_fullfilled for m in self.msp_list]
+        # minimum_requests_done = min(reqs_fullfilled)
 
-        # also commented 2 lines 3rd of reb
-        # if completion_ratio > 0.95:
-        #     reward += budget_efficiency * 20
-        # if termination_reason == "BUDG_FINISHED2":
-        #     reward = -100
+        # # calculate the average immersion on every requests done (value of immersion on every head)
+        # # summ_imm_across_heads = 0
+        # # number_of_global_req = 0  # number of heads requests
+        # all_imm  = [imm for msp in self.msp_list for imm in msp.lst_final_imm]
+        # avg_imm_msps = sum(all_imm) / len(all_imm)
+        # # avg_imm_msps = sum(msp.achvd_immers for msp in self.msp_list) / self.num_msps
+        
+        # # reward = minimum_requests_done * np.clip(avg_imm_msps/MIN_IMMERSIVENESS_TO_PASS, 0, 1)
+        # # print the following on one line in green color.
+        # Focus on total requests fulfilled across MSPs
+        reqs_fullfilled = [m.num_requests_fullfilled for m in self.msp_list]
+        total_requests_fulfilled = sum(reqs_fullfilled)
+        minimum_requests_done = min(reqs_fullfilled)
+        
+        # Calculate average immersion
+        all_imm = [imm for msp in self.msp_list for imm in msp.lst_final_imm]
+        avg_imm_msps = sum(all_imm) / len(all_imm) if all_imm else 0
+        
+        # New: Calculate balance factor to reward more evenly distributed success
+        # balance_factor = 0
+        # if len(reqs_fullfilled) > 1:
+        #     # Lower variance (more balanced) is better
+        #     variance = np.var(reqs_fullfilled)
+        #     balance_factor = np.exp(-variance/5)  # Exponential decay for variance
+        
+        # Total fulfilled requests are now the primary metric
+        reward = total_requests_fulfilled
+        
+        # Bonus for minimum requests being high
+        reward += minimum_requests_done * 0.5
+        
+        # Bonus for helping behavior
+        total_helped_times = sum(m.total_helped_times for m in self.msp_list)
+        reward += total_helped_times * 0.3
+        
+        # Bonus for balanced performance
+        # reward += balance_factor * 2.0
+        
+        # Apply immersion multiplier
+        if avg_imm_msps >= MIN_IMMERSIVENESS_TO_PASS:
+            reward *= np.clip(avg_imm_msps/MIN_IMMERSIVENESS_TO_PASS, 0, 1.2)
+        else:
+            # Severe penalty for not meeting minimum immersion
+            reward *= 0.5
+            
+        if self.total_number_of_episodes_trained % 100 == 0:
+            print(f"\033[92mAll imm: {all_imm}, Avg imm: {avg_imm_msps},reqs done: {reqs_fullfilled}, Minimum requests done: {minimum_requests_done}, Final reward: {reward}\033[0m")
 
-        # assert reward < 130, f"Problem with the rewarding., reward: {reward}, reward_components: {reward_components}"
-        return reward
-
-    def calculate_terminal_reward_new6(self, termination_reason: str):
-        reward = 0
-        total_b_finals = sum(msp.b_avg for msp in self.msp_list)  # this is summation of episode-based average.
-        maximum_b_finals = self.num_msps
-        # 1. Request fulfillment (35%)
-        req_fullfilled = sum(m.num_requests_fullfilled for m in self.msp_list) / sum(
-            m.num_requests for m in self.msp_list)
-        reward += req_fullfilled * 35
-
-        # 2. Quality of service (35%)
-        completion_ratio = total_b_finals / maximum_b_finals
-        reward += (completion_ratio * 35)
-
-        # 3. Budget efficiency (30%) - Now applies at all completion levels
-        initial_budgets = sum(msp.initial_budget for msp in self.msp_list)
-        remaining_budgets = sum(msp.get_budget() for msp in self.msp_list)
-        budget_efficiency = remaining_budgets / initial_budgets
-
-        # Progressive budget efficiency reward
-        if completion_ratio >= 0.8:
-            reward += budget_efficiency * 30
-        elif completion_ratio >= 0.6:
-            reward += budget_efficiency * 20
-        elif completion_ratio >= 0.4:
-            reward += budget_efficiency * 10
-
-        # 4. Early termination penalties
-        if termination_reason == "BUDG_FINISHED":
-            penalty = -20 * (1 - completion_ratio)  # Larger penalty for earlier termination
-            reward += penalty
-
-        # 5. Bonus for completing with good budget management
-        if termination_reason == "GOAL_REACHED" and budget_efficiency > 0.2:
-            reward += 10  # Bonus for completing while maintaining budget
-
-        return reward
-
-    def calculate_terminal_reward_new5(self, termination_reason: str):
-        reward_components = {}
-        total_b_finals = sum(msp.b_avg for msp in self.msp_list)  # this is summation of episode-based average.
-        maximum_b_finals = self.num_msps
-        print("total_b_finals", [msp.b_avg for msp in self.msp_list], "sum is", total_b_finals)
-        print("Maximum b finals", maximum_b_finals)
-        reward = 0
-
-        # added here 
-
-        # Goal achievement and partial progress rewards
-        # if total_b_finals == maximum_b_finals or termination_reason == "GOAL_REACHED":
-        #     reward += 80
-        # reward_components["goal_achievement"] = 80
-        # Full budget efficiency reward when goal is reached
-        initial_budgets = round(sum(msp.initial_budget for msp in self.msp_list), 2)
-        remaining_budgets = round(sum(msp.get_budget() for msp in self.msp_list), 2)
-        # reward += (remaining_budgets / initial_budgets) * 20
-        # reward +=
-        # reward_components["budget_efficiency"] = remaining_budgets / initial_budgets * 20
-        # else:
-        # Partial progress reward
-
-        # just commented this out. yesterday
-        req_fullfilled = sum(m.num_requests_fullfilled for m in self.msp_list) / sum(
-            m.num_requests for m in self.msp_list)
-        reward += req_fullfilled * 40
-        print("req_fullfilled", sum(m.num_requests_fullfilled for m in self.msp_list), ' from ', sum(
-            m.num_requests for m in self.msp_list))
-
-        print("req_fullfilled", req_fullfilled * 40)
-
-        #added this part here. 
-
-        # steps_completion = (GlobalState.get_clock() / max(msp.num_requests for msp in self.msp_list))
-        # reward += (steps_completion * 40)  #to be put again.
-
-        completion_ratio = total_b_finals / maximum_b_finals
-        print("completion_ratio:", completion_ratio, "total_b_finals:", total_b_finals, "maximum_b_finals:",
-              maximum_b_finals)
-        # print("steps_completion:", steps_completion)
-        reward += (completion_ratio * 40)  #to be put again.
-        print("Completion ratio reward:", (completion_ratio * 40))
-
-        budget_efficiency = (remaining_budgets / initial_budgets)
-
-        # new_reward = (steps_completion * completion_ratio) * (1 + budget_efficiency * 0.2) * 100
-        # reward += new_reward
-
-        # also commented 2 lines 3rd of reb
-        if completion_ratio > 0.95:
-            reward += budget_efficiency * 20
-        # if termination_reason == "BUDG_FINISHED2":
-        #     reward = -100
-
-        #assert reward < 130, f"Problem with the rewarding., reward: {reward}, reward_components: {reward_components}"
         return reward
 
 # I think it is going well, I need just to try and see what i get. 
-# Maybe need to see what should be changed about the number of steps and what not. 
+# Maybe need to see what should be changed about the number of steps and what not.

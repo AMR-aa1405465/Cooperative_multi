@@ -25,3 +25,6 @@ MOVING_AVERAGE_WINDOW = 30
 IMMERSIVNESS_FREEDOM = 0.98
 PERC_TO_KEEP = 0.25 # the percentage of the budget that the msp should keep after helping.
 LOWER_BUDGET_THRESHOLD = 0.25 # the threshold for the budget to be considered as low.
+
+
+MIN_IMMERSIVENESS_TO_PASS = 0.6 # the minimum immersiveness to pass. 
